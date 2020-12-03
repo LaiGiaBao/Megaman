@@ -5,7 +5,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
-
+// Store animations
 public class FrameImage{
     
     private String name;
@@ -15,7 +15,7 @@ public class FrameImage{
         this.name = name;
         this.image = image;
     }
-    
+    //Copy constructor
     public FrameImage(FrameImage frameImage){
         image = new BufferedImage(frameImage.getWidthImage(), 
                 frameImage.getHeightImage(), frameImage.image.getType());

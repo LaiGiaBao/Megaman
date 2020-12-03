@@ -102,8 +102,13 @@ public class Animation {
     public void reset(){
         currentFrame = 0;
         beginTime = 0;
+
+        for (int i =0 ; i< ignoreFrames.size();i++){
+            ignoreFrames.set(i,false);
+        }
     }
-    
+    // When we create a new animation, we have to add a new frame, too.
+    // timeToNextFrame = delayFrame
     public void add(FrameImage frameImage, double timeToNextFrame){
 
         ignoreFrames.add(false);
@@ -121,14 +126,14 @@ public class Animation {
         return frameImages.get(currentFrame).getImage();
     }
     
-    public void Update(long deltaTime){
+    public void Update(long currentTime){
         
-        if(beginTime == 0) beginTime = deltaTime;
+        if(beginTime == 0) beginTime = currentTime;
         else{
             
-            if(deltaTime - beginTime > delayFrames.get(currentFrame)){
+            if(currentTime - beginTime > delayFrames.get(currentFrame)){
                 nextFrame();
-                beginTime = deltaTime;
+                beginTime = currentTime;
             }
         }
         
@@ -136,9 +141,7 @@ public class Animation {
 
     
     public boolean isLastFrame(){
-        if(currentFrame == frameImages.size() - 1)
-            return true;
-        else return false;
+        return currentFrame == (frameImages.size()-1);
     }
     
     private void nextFrame(){
