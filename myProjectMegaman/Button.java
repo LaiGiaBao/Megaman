@@ -1,4 +1,4 @@
-package Control;
+package com.myTeam.Control;
 
 
 import java.awt.Color;
