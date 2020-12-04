@@ -1,5 +1,6 @@
 package com.myTeam.user_interface;
 
+import com.myTeam.effect.Animation;
 import com.myTeam.effect.FrameImage;
 
 import javax.imageio.ImageIO;
@@ -15,21 +16,18 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
     private Thread thread;
     private boolean isRunning;
     InputManager inputManager;
-    FrameImage frame1;
     GamePanel(){
         inputManager = new InputManager();
         try {
-            BufferedImage image = ImageIO.read(new File("C:\\Users\\PC\\Documents\\GitHub\\Megaman\\myProjectMegaman\\data\\megasprite.png"));
-            BufferedImage image1 = image.getSubimage(529,38,70,100);
-            frame1 = new FrameImage("frame1",image1);
+            BufferedImage image = ImageIO.read(new File("myProjectMegaman/data/megasprite.png"));
         } catch  (IOException e) { }
     }
     @Override
     public void paint(Graphics g){
-        g.setColor(new Color (205,38,38));
+        g.setColor(Color.DARK_GRAY);
         g.fillRect(0,0,Frame.SCREEN_WIDTH,Frame.SCREEN_HEIGHT);
         Graphics2D g2 = (Graphics2D) g;
-        frame1.draw(30,30,g2);
+
     }
     public void start(){
         if (thread == null){

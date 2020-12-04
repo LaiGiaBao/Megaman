@@ -10,7 +10,12 @@ public class FrameImage{
     
     private String name;
     private BufferedImage image;
-    
+
+    FrameImage(){
+        image = null;
+        name = null;
+    }
+
     public FrameImage(String name, BufferedImage image){
         this.name = name;
         this.image = image;
@@ -29,11 +34,7 @@ public class FrameImage{
         g2.drawImage(image, x - image.getWidth()/2, y - image.getHeight()/2, null);
         
     }
-    
-    public FrameImage(){
-        this.name = null;
-        image = null;
-    }
+
     
     public int getWidthImage(){
         return image.getWidth();
