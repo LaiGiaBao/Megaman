@@ -8,7 +8,7 @@ public class CacheDataLoader {
     private static CacheDataLoader instance=null;
 
     private String framePath = "myProjectMegaman/data/frame.txt";
-    private String animationPath ="myProjectMegaman/data/animation.txt";
+    private  String animationPath ="myProjectMegaman/data/animation.txt";
     private Hashtable<String,FrameImage> frameImages;
     private Hashtable<String, Animation> animations;
     private CacheDataLoader(){
