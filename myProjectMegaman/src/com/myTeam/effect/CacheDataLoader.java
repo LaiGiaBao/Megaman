@@ -5,7 +5,7 @@ import java.io.*;
 import java.util.Hashtable;
 //Singleton
 public class CacheDataLoader {
-    private static CacheDataLoader instance;
+    private static CacheDataLoader instance=null;
 
     private String framePath = "myProjectMegaman/data/frame.txt";
     private String animationPath ="myProjectMegaman/data/animation.txt";
@@ -30,37 +30,38 @@ public class CacheDataLoader {
         return animation;
     }
 
-    public void LoadFrame() throws IOException {
+    public void LoadFrame() throws IOException{
+
         frameImages = new Hashtable<String, FrameImage>();
+
         FileReader fr = new FileReader(framePath);
         BufferedReader br = new BufferedReader(fr);
 
         String line = null;
 
-        if(br.readLine()==null){
+        if(br.readLine()==null) {
             System.out.println("No data");
             throw new IOException();
         }
         else {
-            // Đưa con trỏ về đầu file
+
             fr = new FileReader(framePath);
             br = new BufferedReader(fr);
-            //Skip dòng trống
-            while((line = br.readLine()).equals(""));
 
+            while((line = br.readLine()).equals(""));
             int n = Integer.parseInt(line);
-            for(int i =0; i<n;i++){
-                String[] str;
+            for(int i = 0;i < n; i ++){
+
                 FrameImage frame = new FrameImage();
                 while((line = br.readLine()).equals(""));
                 frame.setName(line);
 
                 while((line = br.readLine()).equals(""));
-                str = line.split(" ");
+                String[] str = line.split(" ");
                 String path = str[1];
 
                 while((line = br.readLine()).equals(""));
-                str= line.split(" ");
+                str = line.split(" ");
                 int x = Integer.parseInt(str[1]);
 
                 while((line = br.readLine()).equals(""));
@@ -76,43 +77,57 @@ public class CacheDataLoader {
                 int h = Integer.parseInt(str[1]);
 
                 BufferedImage imageData = ImageIO.read(new File(path));
-                BufferedImage image = imageData.getSubimage(x,y,w,h);
+                BufferedImage image = imageData.getSubimage(x, y, w, h);
                 frame.setImage(image);
 
-                instance.frameImages.put(frame.getName(),frame);
+                instance.frameImages.put(frame.getName(), frame);
             }
-        }
-    }
 
-    public void LoadAnimation() throws IOException{
-        animations = new Hashtable<String,Animation>();
+        }
+
+        br.close();
+
+    }
+    public void LoadAnimation() throws IOException {
+
+        animations = new Hashtable<String, Animation>();
 
         FileReader fr = new FileReader(animationPath);
         BufferedReader br = new BufferedReader(fr);
 
         String line = null;
-        if(br.readLine()==null){
+
+        if(br.readLine()==null) {
             System.out.println("No data");
             throw new IOException();
         }
-        else{
+        else {
+
+            fr = new FileReader(animationPath);
+            br = new BufferedReader(fr);
+
             while((line = br.readLine()).equals(""));
             int n = Integer.parseInt(line);
 
-            for(int i =0;i< n;i++){
-                String[] str;
+            for(int i = 0;i < n; i ++){
+
                 Animation animation = new Animation();
+
                 while((line = br.readLine()).equals(""));
                 animation.setName(line);
 
                 while((line = br.readLine()).equals(""));
-                str = line.split(" ");
+                String[] str = line.split(" ");
 
-                for(int j =0;j <str.length;j+=2)
-                    animation.add(getFrameImage(str[j]),Double.parseDouble(str[j+1]));
-                instance.animations.put(animation.getName(),animation);
+                for(int j = 0;j<str.length;j+=2)
+                    animation.add(getFrameImage(str[j]), Double.parseDouble(str[j+1]));
+
+                instance.animations.put(animation.getName(), animation);
+
             }
+
         }
+
         br.close();
     }
     public void LoadData() throws IOException{

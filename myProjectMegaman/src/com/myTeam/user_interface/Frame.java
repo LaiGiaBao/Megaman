@@ -1,10 +1,15 @@
 package com.myTeam.user_interface;
 
 import com.myTeam.effect.CacheDataLoader;
+import com.myTeam.effect.FrameImage;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
+import java.util.Hashtable;
 
 public class Frame extends JFrame {
     public static final int SCREEN_WIDTH = 1600;
@@ -28,9 +33,10 @@ public class Frame extends JFrame {
     public void startGame(){
         gamePanel.start();
     }
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Frame gameFrame = new Frame();
         gameFrame.setVisible(true);
         gameFrame.startGame();
+        //int n=Integer.parseInt(line.replaceAll("\\D+", ""));
     }
 }
