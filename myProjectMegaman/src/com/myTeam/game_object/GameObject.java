@@ -22,7 +22,7 @@ public class GameObject {
     }
     public void draw(Graphics2D g) {
         g.setColor(Color.ORANGE);
-        g.fill((int) posX, (int) posY, (int) width, (int) height);
+        //g.fill((int) posX, (int) posY, (int) width, (int) height);
     }
 
     public float getHeight() {

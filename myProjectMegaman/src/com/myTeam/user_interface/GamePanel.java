@@ -10,6 +10,7 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 
@@ -17,22 +18,33 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
     private Thread thread;
     private boolean isRunning;
     InputManager inputManager;
-    FrameImage frame1;
-    Animation anim1;
+    private BufferedImage bufImage;
+    private Graphics2D bufG2D;
+
     GamePanel(){
         inputManager = new InputManager();
-        frame1 = CacheDataLoader.getInstance().getFrameImage("idleshoot1");
-        anim1 = CacheDataLoader.getInstance().getAnimation("robotRbullet");
-        anim1.flipAllImage();
+        bufImage = new BufferedImage(Frame.SCREEN_WIDTH, Frame.SCREEN_HEIGHT,BufferedImage.TYPE_INT_ARGB);// RGB -> 3 main colors
     }
 
+    public void RenderGame(){
+        if(bufImage == null){
+            bufImage = new BufferedImage(Frame.SCREEN_WIDTH, Frame.SCREEN_HEIGHT,BufferedImage.TYPE_INT_ARGB);
+        }
+        else{
+            bufG2D = (Graphics2D) bufImage.getGraphics();
+        }
+        if(bufG2D != null){
+            bufG2D.setColor(Color.DARK_GRAY);
+            bufG2D.fillRect(0,0,Frame.SCREEN_WIDTH,Frame.SCREEN_HEIGHT);
+            bufG2D.setColor(Color.CYAN);
+            bufG2D.fillRect(40,50,100,100);
+        }
+    }
     @Override
     public void paint(Graphics g){
-        g.setColor(Color.DARK_GRAY);
-        g.fillRect(0,0,Frame.SCREEN_WIDTH,Frame.SCREEN_HEIGHT);
-        Graphics2D g2 = (Graphics2D) g;
-        frame1.draw(130,130,g2);
-        anim1.draw(300,300,g2);
+
+        g.drawImage(bufImage,0,0,this);
+
     }
     public void start(){
         if (thread == null){
@@ -47,15 +59,13 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
         long period = 1000 *1000000 /FPS; //nanoseconds
         long beginTime;
         long sleepTime;
-        int a =0;
         beginTime = System.nanoTime();
         while(isRunning){
             /*
             * Update game
             * Render game
             * */
-            //System.out.println("a= "+ (a++) );
-            anim1.Update(System.nanoTime());
+            RenderGame();
             repaint();
             long deltaTime = System.nanoTime() - beginTime;
             sleepTime = period - deltaTime;
