@@ -2,7 +2,7 @@ package com.myTeam.game_object;
 
 import java.awt.*;
 
-public class GameObject {
+public abstract class GameObject {
     private float posX;
     private float posY;
     private float width;
@@ -88,5 +88,7 @@ public class GameObject {
     public void setWidth(float width) {
         this.width = width;
     }
+    
+    public abstract void Refresh(); //them method lam moi
 }
 
