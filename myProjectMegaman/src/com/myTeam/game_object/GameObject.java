@@ -2,15 +2,20 @@ package com.myTeam.game_object;
 
 import java.awt.*;
 
-public class GameObject {
+public abstract class GameObject {
     private float posX;
     private float posY;
     private float width;
     private float height;
     private float mass;//de tinh toc do roi nhanh hay chap
     private float speedX;
+<<<<<<< HEAD
     private float speddY;
     private int DIR_LEFT;// xác định hướng megaman bắn đạn khi đứnng yên
+=======
+    private float speedY;
+    private int DIR_LEFT;
+>>>>>>> 8583ca9107abd5105c1030bdec86831aa0ef1036
     private int DIR_RIGHT;
     private int dicrection;// len xuong;
     public GameObject(float posX,float posY,float width,float height,float mass) {
@@ -53,24 +58,24 @@ public class GameObject {
         return width;
     }
 
-    public int getDicrection() {
+    public int getDirection() {
         return dicrection;
     }
 
-    public float getSpeddY() {
-        return speddY;
+    public float getSpeedY() {
+        return speedY;
     }
 
     public float getSpeedX() {
         return speedX;
     }
 
-    public void setDicrection(int dicrection) {
+    public void setDirection(int dicrection) {
         this.dicrection = dicrection;
     }
 
-    public void setSpeddY(float speddY) {
-        this.speddY = speddY;
+    public void setSpeedY(float speedY) {
+        this.speedY = speedY;
     }
 
     public void setSpeedX(float speedX) {
@@ -96,5 +101,7 @@ public class GameObject {
     public void setWidth(float width) {
         this.width = width;
     }
+    
+    public abstract void Refresh(); //them method lam moi
 }
 
