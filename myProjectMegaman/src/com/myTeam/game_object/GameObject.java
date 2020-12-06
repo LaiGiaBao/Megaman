@@ -10,19 +10,27 @@ public class GameObject {
     private float mass;//de tinh toc do roi nhanh hay chap
     private float speedX;
     private float speddY;
-    private int DIR_LEFT;
+    private int DIR_LEFT;// xác định hướng megaman bắn đạn khi đứnng yên
     private int DIR_RIGHT;
     private int dicrection;// len xuong;
-    public void Megaman(float posX,float posY,float width,float height,float mass) {
+    public GameObject(float posX,float posY,float width,float height,float mass) {
         this.posX=posX;
         this.posY=posY;
         this.width=width;
         this.height=height;
         this.mass=mass;
     }
+    //update la posX va speedX để xác hướng bắn đạn
+    public void update() {
+        setPosX(getPosX()+getSpeedX());
+        setPosY(getPosY()+getSpeddY());
+        setSpeddY(getSpeddY()+getMass());// gia tốc rơi của mọi GameObject khi ko nhảy ( mass cang on' roi cang nhanh)
+        if (getPosY() > 400 ) setPosY(400); 
+        else setPosY(getPosY()+getSpeddY());
+    }
     public void draw(Graphics2D g) {
         g.setColor(Color.ORANGE);
-        //g.fill((int) posX, (int) posY, (int) width, (int) height);
+        g.fillRect((int) posX, (int) posY, (int) width, (int) height);
     }
 
     public float getHeight() {
