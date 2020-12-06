@@ -9,7 +9,7 @@ public class GameObject {
     private float height;
     private float mass;//de tinh toc do roi nhanh hay chap
     private float speedX;
-    private float speddY;
+    private float speedY;
     private int DIR_LEFT;
     private int DIR_RIGHT;
     private int dicrection;// len xuong;
@@ -45,24 +45,24 @@ public class GameObject {
         return width;
     }
 
-    public int getDicrection() {
+    public int getDirection() {
         return dicrection;
     }
 
-    public float getSpeddY() {
-        return speddY;
+    public float getSpeedY() {
+        return speedY;
     }
 
     public float getSpeedX() {
         return speedX;
     }
 
-    public void setDicrection(int dicrection) {
+    public void setDirection(int dicrection) {
         this.dicrection = dicrection;
     }
 
-    public void setSpeddY(float speddY) {
-        this.speddY = speddY;
+    public void setSpeedY(float speedY) {
+        this.speedY = speedY;
     }
 
     public void setSpeedX(float speedX) {
