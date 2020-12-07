@@ -40,21 +40,15 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
             //draw every object in here
             bufG2D.setColor(Color.DARK_GRAY);
             bufG2D.fillRect(0,0,Frame.SCREEN_WIDTH,Frame.SCREEN_HEIGHT);
-<<<<<<< HEAD
-//<<<<<<< HEAD
-            bufG2D.setColor(Color.CYAN);
-            bufG2D.fillRect(40,50,100,100);
-            megaman.draw(bufG2D);
-//=======
-//>>>>>>> 8583ca9107abd5105c1030bdec86831aa0ef1036
-=======
 
             bufG2D.setColor(Color.CYAN);
             bufG2D.fillRect(40,50,100,100);
             megaman.draw(bufG2D);
 
+            bufG2D.setColor(Color.CYAN);
+            bufG2D.fillRect(40,50,100,100);
+            megaman.draw(bufG2D);
 
->>>>>>> de59c335af0cd92608c7757908c75a0043414f51
         }
     }
     @Override
