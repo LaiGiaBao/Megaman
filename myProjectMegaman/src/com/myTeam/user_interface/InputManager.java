@@ -54,7 +54,7 @@ public class InputManager {
                 break;
             case KeyEvent.VK_SPACE:
              //   System.out.println("Released SPACE");
-               gamePanel.megaman.setSpeddY(-3);
+               gamePanel.megaman.setSpeedY(-3);
                 break;
         }
     }
