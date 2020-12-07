@@ -11,7 +11,7 @@ public abstract class GameObject {
     private float speedX;
 <<<<<<< HEAD
     private float speddY;
-    private int DIR_LEFT;// xác định hướng megaman bắn đạn khi đứnng yên
+    private int DIR_LEFT;// xÃ¡c Ä‘á»‹nh hÆ°á»›ng megaman báº¯n Ä‘áº¡n khi Ä‘á»©nng yÃªn
 =======
     private float speedY;
     private int DIR_LEFT;
@@ -25,11 +25,11 @@ public abstract class GameObject {
         this.height=height;
         this.mass=mass;
     }
-    //update la posX va speedX để xác hướng bắn đạn
+    //update la posX va speedX Ä‘á»ƒ xÃ¡c hÆ°á»›ng báº¯n Ä‘áº¡n
     public void update() {
         setPosX(getPosX()+getSpeedX());
         setPosY(getPosY()+getSpeddY());
-        setSpeddY(getSpeddY()+getMass());// gia tốc rơi của mọi GameObject khi ko nhảy ( mass cang on' roi cang nhanh)
+        setSpeddY(getSpeddY()+getMass());// gia tá»‘c rÆ¡i cá»§a má»�i GameObject khi ko nháº£y ( mass cang on' roi cang nhanh)
         if (getPosY() > 400 ) setPosY(400); 
         else setPosY(getPosY()+getSpeddY());
     }
@@ -102,6 +102,6 @@ public abstract class GameObject {
         this.width = width;
     }
     
-    public abstract void Refresh(); //them method lam moi
+    public abstract void Reset(); //them method lam moi
 }
 

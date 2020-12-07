@@ -28,7 +28,6 @@ public class RectButton extends Button {
 			g.setColor(Color.GRAY);
 		}
 		g.fillRect(posX, posY, width, height);
-		
 		g.setColor(Color.PINK);
 		g.drawRect(posX, posY, width, height);
 		g.drawRect(posX + 1, posY + 1, width - 2, height - 2);
