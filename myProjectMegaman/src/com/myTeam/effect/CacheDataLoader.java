@@ -9,8 +9,14 @@ public class CacheDataLoader {
 
     private String framePath = "myProjectMegaman/data/frame.txt";
     private  String animationPath ="myProjectMegaman/data/animation.txt";
+    private String physmapfile = "myProjectMegaman/data/phys_map.txt";
+    private String backgroundsmapfile = "myProjectMegaman/data/background_map.txt";
+
     private Hashtable<String,FrameImage> frameImages;
     private Hashtable<String, Animation> animations;
+
+    private int [][] physmap;// ban do map trong game
+    private int [][] backgroundmap;
     private CacheDataLoader(){
 
     }
@@ -133,5 +139,40 @@ public class CacheDataLoader {
     public void LoadData() throws IOException{
         LoadFrame();
         LoadAnimation();
+       // LoadPhysMap();
     }
+    // load physmap 
+   /* public void LoadPhysMap() throws IOException {
+        FileReader fr = new FileReader(physmapfile);// sau khi đọc xong 1 file thì output ra 1
+        BufferedReader br = new BufferedReader(fr);
+        String line = null;
+        line = br.readLine();
+        int numberrow = Integer.parseInt(line);// ep' kieu cho 0 va 1
+        line = br.readLine();
+        int numbercoll = Integer.parseInt(line);
+        instance.physmap = new int[numberrow][numbercoll];
+        // doc file physmap
+        for (int i = 0;i<numberrow;i++) {
+            line = br.readLine();
+            String [] arr  = line.split(" ");// them dau cach va giu cac so 0 va 1
+            for(int j=0;i<numbercoll;j++) {
+                instance.physmap[i][j]=Integer.parseInt(arr[j]);
+            }
+        }
+        // ve map du vao file da doc text thu
+        for (int i=0;i<numberrow;i++) {
+            for (int j=0;j<numbercoll;j++) {
+                System.out.print(" "+instance.physmap[i][j]);
+            }
+            System.out.println();
+        }
+        br.close();
+    }
+    public int[][] getPhysmap() {
+        return physmap;
+    }
+
+    public int[][] getBackgroundmap() {
+        return backgroundmap;
+    }*/
 }

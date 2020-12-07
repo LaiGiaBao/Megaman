@@ -21,7 +21,6 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
     InputManager inputManager;
     private BufferedImage bufImage;
     private Graphics2D bufG2D;
-
     GameObject megaman = new GameObject(300,300,100,100,0.1f);
     GamePanel(){
         inputManager = new InputManager(this);
@@ -41,12 +40,12 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
             //draw every object in here
             bufG2D.setColor(Color.DARK_GRAY);
             bufG2D.fillRect(0,0,Frame.SCREEN_WIDTH,Frame.SCREEN_HEIGHT);
-<<<<<<< HEAD
+//<<<<<<< HEAD
             bufG2D.setColor(Color.CYAN);
             bufG2D.fillRect(40,50,100,100);
             megaman.draw(bufG2D);
-=======
->>>>>>> 8583ca9107abd5105c1030bdec86831aa0ef1036
+//=======
+//>>>>>>> 8583ca9107abd5105c1030bdec86831aa0ef1036
         }
     }
     @Override
