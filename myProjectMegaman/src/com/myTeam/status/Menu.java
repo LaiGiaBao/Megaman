@@ -69,9 +69,9 @@ public class Menu extends MainStatus {
     private void actionMenu() {
         switch(buttonSelected) {
             case 0:
-                panel.setState(new GameWorld(panel));
+                //panel.setState(new GameWorld(panel));
                 break;
-           
+
             case 1:
                 System.exit(0);
                 break;
@@ -103,6 +103,11 @@ public class Menu extends MainStatus {
                 actionMenu();
                 break;
         }
+    }
+
+    @Override
+    public void setReleasedButton(int key) {
+        
     }
 
 }

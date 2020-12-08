@@ -23,7 +23,6 @@ public class GameObject {
         this.height=height;
         this.mass=mass;
     }
-    //update la posX va speedX Ä‘á»ƒ xÃ¡c hÆ°á»›ng báº¯n Ä‘áº¡n
     public void update() {
         setPosX(getPosX()+getSpeedX());
         setPosY(getPosY()+getSpeedY());
