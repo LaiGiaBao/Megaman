@@ -139,27 +139,27 @@ public class CacheDataLoader {
     public void LoadData() throws IOException{
         LoadFrame();
         LoadAnimation();
-       // LoadPhysMap();
+        LoadPhysMap();
     }
-    // load physmap 
-   /* public void LoadPhysMap() throws IOException {
+    // doc map tu file txt
+    public void LoadPhysMap() throws IOException {
         FileReader fr = new FileReader(physmapfile);// sau khi đọc xong 1 file thì output ra 1
         BufferedReader br = new BufferedReader(fr);
         String line = null;
         line = br.readLine();
-        int numberrow = Integer.parseInt(line);// ep' kieu cho 0 va 1
+        int numberrow = Integer.parseInt(line);// doc so cot
         line = br.readLine();
-        int numbercoll = Integer.parseInt(line);
+        int numbercoll = Integer.parseInt(line);// doc so dong
         instance.physmap = new int[numberrow][numbercoll];
         // doc file physmap
         for (int i = 0;i<numberrow;i++) {
             line = br.readLine();
-            String [] arr  = line.split(" ");// them dau cach va giu cac so 0 va 1
+            String [] arr  = line.split(" ");
             for(int j=0;i<numbercoll;j++) {
                 instance.physmap[i][j]=Integer.parseInt(arr[j]);
             }
         }
-        // ve map du vao file da doc text thu
+        // ve map du vao file da doc text thu in ra man hinh
         for (int i=0;i<numberrow;i++) {
             for (int j=0;j<numbercoll;j++) {
                 System.out.print(" "+instance.physmap[i][j]);
@@ -174,5 +174,5 @@ public class CacheDataLoader {
 
     public int[][] getBackgroundmap() {
         return backgroundmap;
-    }*/
+    }
 }

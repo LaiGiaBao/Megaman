@@ -6,7 +6,6 @@ import com.myTeam.status.GameWorld;
 public abstract class GameObject {
     private float posX;
     private float posY;
-
 	private GameWorld world;
 	
 	public GameObject(float posX, float posY, GameWorld world){

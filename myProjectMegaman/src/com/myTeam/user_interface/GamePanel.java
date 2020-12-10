@@ -4,6 +4,8 @@ import com.myTeam.effect.Animation;
 import com.myTeam.effect.CacheDataLoader;
 import com.myTeam.effect.FrameImage;
 import com.myTeam.game_object.GameObject;
+import com.myTeam.game_object.MegaMan;
+import com.myTeam.status.GameWorld;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -21,13 +23,17 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
     InputManager inputManager;
     private BufferedImage bufImage;
     private Graphics2D bufG2D;
-    GameObject megaman = new GameObject(300,300,100,100,0.1f);
+    //MegaMan megaman = new GameObject(300,300,,0.1f);
+    private GameWorld gameWorld;
     GamePanel(){
-        inputManager = new InputManager(this);
+        gameWorld = new GameWorld();
+        inputManager = new InputManager(gameWorld);
         bufImage = new BufferedImage(Frame.SCREEN_WIDTH, Frame.SCREEN_HEIGHT,BufferedImage.TYPE_INT_ARGB);// RGB -> 3 main colors
+
     }
     public void UpdateGame() {
-        megaman.update();
+
+        gameWorld.Update();
     }
     public void RenderGame(){
         if(bufImage == null){
@@ -41,20 +47,21 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
             bufG2D.setColor(Color.DARK_GRAY);
             bufG2D.fillRect(0,0,Frame.SCREEN_WIDTH,Frame.SCREEN_HEIGHT);
 
-            bufG2D.setColor(Color.CYAN);
+            gameWorld.Render(bufG2D);
+     /*       bufG2D.setColor(Color.CYAN);
             bufG2D.fillRect(40,50,100,100);
             megaman.draw(bufG2D);
 
             bufG2D.setColor(Color.CYAN);
             bufG2D.fillRect(40,50,100,100);
-            megaman.draw(bufG2D);
+            megaman.draw(bufG2D);*/
 
         }
     }
     @Override
     public void paint(Graphics g){
 
-        g.drawImage(bufImage,0,0,this);
+      //  g.drawImage(bufImage,0,0,this);
 
     }
     public void start(){
@@ -106,5 +113,13 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
     public void keyReleased(KeyEvent e) {
         inputManager.processedKeyRelease(e.getKeyCode());
 
+    }
+
+    public void setGameWorld(GameWorld gameWorld) {
+        this.gameWorld = gameWorld;
+    }
+
+    public GameWorld getGameWorld() {
+        return gameWorld;
     }
 }
