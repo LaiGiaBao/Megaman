@@ -57,7 +57,7 @@ public class InputManager {
             case KeyEvent.VK_SPACE:
              //   System.out.println("Released SPACE");
                gameWorld.getMegaMan().setSpeedY(-3);// toc do nhay khi an space
-               gameWorld.getMegaMan().setSpeedY(-3);
+            //   gameWorld.getMegaMan().setSpeedY(-3);
                 break;
         }
     }

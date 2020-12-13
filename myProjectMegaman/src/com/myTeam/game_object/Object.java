@@ -239,6 +239,6 @@ public abstract class Object extends GameObject {
                 break;
         }
     }
-    public abstract  Rectangle boundCollisionEnemy;
+    public abstract  Rectangle boundCollisionEnemy() ;
     public abstract  void draw(Graphics2D g);
 }

@@ -41,7 +41,7 @@ public class MegaMan extends Character {
         Rectangle rec1 = getBoundsofmegaman();
         rec1.y += getPosY();
         // hinh chu nhat dai dien cho lane
-        Rectangle rec1land = gameWorld.getPhysicMap().land(rec1);
+        Rectangle rec1land = gameWorld.getPhysicMap().collisionland(rec1);
         if (rec1land!=null) {
         //
             setPosY(rec1land.y-getHeight()/2);
