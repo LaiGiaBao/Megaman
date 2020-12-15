@@ -116,4 +116,49 @@ public class MegaMan extends Character {
     public float getWidth() {
         return width;
     }
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void jump() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void dick() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void standUp() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void standRun() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void stopRun() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public Rectangle boundCollisionEnemy() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public void draw(Graphics2D g) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public Rectangle getBoundForCollisionWithEnemy() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

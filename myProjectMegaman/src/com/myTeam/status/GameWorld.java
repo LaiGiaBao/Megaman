@@ -2,13 +2,21 @@ package com.myTeam.status;
 
 import com.myTeam.game_object.MegaMan;
 import com.myTeam.game_object.PhysicMap;
-
+import com.myTeam.effect.CacheDataLoader;
+import com.myTeam.effect.FrameImage;
+import com.myTeam.game_object.Camera;
+import com.myTeam.game_object.BackGround;
+import com.myTeam.game_object.Object;
+import com.myTeam.game_object.ObjectManager;
 import java.awt.*;
 
 public class GameWorld {
-    private MegaMan megaMan ;
-    private PhysicMap physicMap ;
-
+    public MegaMan megaMan ;
+    public PhysicMap physicMap ;
+    public BackGround background;
+    public Camera camera;
+    public ObjectManager ObjectManager;
+    
     public GameWorld() {
         megaMan= new MegaMan(300,300,100,100,0.1f,this);
         physicMap = new PhysicMap(0,0,this);

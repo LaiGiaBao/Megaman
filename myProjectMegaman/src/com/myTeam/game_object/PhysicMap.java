@@ -132,6 +132,7 @@ public class PhysicMap extends GameObject{
             return  null;
 
     }
+    }
     public void draw(Graphics2D g2){
         //chi? ve map trong vung ma camera tro den
         //Camera camera = getGameWorld().camera;

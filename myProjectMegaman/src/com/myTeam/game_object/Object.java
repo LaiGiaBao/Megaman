@@ -187,7 +187,7 @@ public abstract class Object extends GameObject {
     public void setSpeedY(float speedY) {
         this.speedY = speedY;
     }
-    public void attach() {}
+    public void attack() {}
     // ve 1 rectangle xung quanh doi tuong giong megaman
     public Rectangle getBoundsofmegaman() {
         Rectangle rectangle = new Rectangle();
@@ -197,7 +197,7 @@ public abstract class Object extends GameObject {
         rectangle.height=(int) getHeight();
         return  rectangle;
     }
-    public void beAttached(int damage) {
+    public void beAttacked(int damage) {
         setBlood(getBlood()-damage);
         state = BEHURT;
         AnimationofbeAttached();
