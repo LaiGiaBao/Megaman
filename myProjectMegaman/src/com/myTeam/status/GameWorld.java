@@ -81,28 +81,13 @@ public class GameWorld extends MainStatus {
     }
     
     private void initEnemies(){
-        Object redbot = new RedBot(1250, 410, this);
+        Object redbot = new RedBot(1300, 440, this);
         redbot.setDirection(Object.LEFTDIR);
         redbot.setTeamType(Object.ENEMYTEAM);
         objectManager.addObject(redbot);
         
-        //
+        // se tao them nhieu con sau 
         
-        
-        Object redbot2 = new RedBot(2500, 500, this);
-        redbot2.setDirection (Object.LEFTDIR);
-        redbot2.setTeamType (Object.ENEMYTEAM);
-        objectManager.addObject(redbot2);
-        
-        Object redbot3 = new RedBot(3450, 500, this);
-        redbot3.setDirection (Object.LEFTDIR);
-        redbot3.setTeamType (Object.ENEMYTEAM);
-        objectManager.addObject(redbot3);
-        
-        Object redbot4 = new RedBot(500, 1190, this);
-        redbot4.setDirection (Object.RIGHTDIR);
-        redbot4.setTeamType (Object.ENEMYTEAM);
-        objectManager.addObject(redbot4);
         
 
      //
