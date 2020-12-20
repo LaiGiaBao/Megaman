@@ -6,6 +6,7 @@ import com.myTeam.effect.FrameImage;
 import com.myTeam.game_object.GameObject;
 import com.myTeam.game_object.MegaMan;
 import com.myTeam.status.GameWorld;
+import com.myTeam.status.MainStatus;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -18,6 +19,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class GamePanel extends JPanel implements Runnable, KeyListener {
+	Menu status;
     private Thread thread;
     private boolean isRunning;
     InputManager inputManager;
@@ -25,8 +27,8 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
     private Graphics2D bufG2D;
     //MegaMan megaman = new GameObject(300,300,,0.1f);
     private GameWorld gameWorld;
-    GamePanel(){
-        gameWorld = new GameWorld();
+    public GamePanel(){
+        status = new Menu();
         inputManager = new InputManager(gameWorld);
         bufImage = new BufferedImage(Frame.SCREEN_WIDTH, Frame.SCREEN_HEIGHT,BufferedImage.TYPE_INT_ARGB);// RGB -> 3 main colors
 
@@ -47,7 +49,7 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
             bufG2D.setColor(Color.DARK_GRAY);
             bufG2D.fillRect(0,0,Frame.SCREEN_WIDTH,Frame.SCREEN_HEIGHT);
 
-            gameWorld.Render(bufG2D);
+            //gameWorld.Render(bufG2D);
      /*       bufG2D.setColor(Color.CYAN);
             bufG2D.fillRect(40,50,100,100);
             megaman.draw(bufG2D);
@@ -121,5 +123,10 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
 
     public GameWorld getGameWorld() {
         return gameWorld;
+    }
+    
+    public void setState(MainStatus status) {
+        this.status=status;
+        inputManager.setState(status);
     }
 }

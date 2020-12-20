@@ -13,6 +13,6 @@ public abstract class MainStatus {
     public abstract void Render();
     public abstract BufferedImage getBufferedImage();
     
-    public abstract void setPressedButton(int key);
-    public abstract void setReleasedButton(int key);
+    public abstract void processedKeyPress(int keyCode);
+    public abstract void processedKeyRelease(int keyCode);
 }

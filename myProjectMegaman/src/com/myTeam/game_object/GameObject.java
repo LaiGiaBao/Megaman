@@ -6,12 +6,12 @@ import com.myTeam.status.GameWorld;
 public abstract class GameObject {
     private float posX;
     private float posY;
-	private GameWorld world;
+	private GameWorld gameWorld;
 	
-	public GameObject(float posX, float posY, GameWorld world){
+	public GameObject(float posX, float posY, GameWorld gameWorld){
 		this.posX=posX;
 		this.posY=posY;
-		this.world=world;
+		this.gameWorld=gameWorld;
 	}
 	
 	public void setPosX(float posX){
@@ -31,10 +31,10 @@ public abstract class GameObject {
 	}
 	
 	public GameWorld getGameWorld(){
-		return world;
+		return gameWorld;
 	}
 	
 	public abstract void Update();
-	public abstract Rectangle getBoundForCollisionWithEnemy();
+	
 	
 }

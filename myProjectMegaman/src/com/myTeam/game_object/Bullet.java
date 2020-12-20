@@ -16,7 +16,7 @@ public abstract class Bullet extends Object {
         super.Update();
         setPosX(getPosX() + getSpeedX());
         setPosY(getPosY() + getSpeedY());
-        Object object = getGameWorld().ObjectManager.getCollisionWidthEnemy(this);
+        Object object = getGameWorld().objectManager.getCollisionWidthEnemy(this);
         if(object!=null && object.getState() == ALIVE){
             setBlood(0);
             object.beAttacked(getDamage());

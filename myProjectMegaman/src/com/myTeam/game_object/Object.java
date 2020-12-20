@@ -204,6 +204,7 @@ public abstract class Object extends GameObject {
     }
     //hieu ung khi nhan damge tuy vao Object
     public void AnimationofbeAttached() {}
+    
     public void Update() {
         switch (state) {
             case ALIVE:
@@ -239,6 +240,42 @@ public abstract class Object extends GameObject {
                 break;
         }
     }
-    public abstract  Rectangle boundCollisionEnemy() ;
-    public abstract  void draw(Graphics2D g);
+    
+    public boolean isObjectOutOfCameraView(){
+        if(getPosX() - getGameWorld().camera.getPosX() > getGameWorld().camera.getWidthCam() ||
+                getPosX() - getGameWorld().camera.getPosX() < -50
+            ||getPosY() - getGameWorld().camera.getPosY() > getGameWorld().camera.getHeightCam()
+                    ||getPosY() - getGameWorld().camera.getPosY() < -50)
+            return true;
+        else 
+        	return false;
+    }
+    
+    public Rectangle getBoundForCollisionWithMap(){
+        Rectangle bound = new Rectangle();
+        bound.x = (int) (getPosX() - (getWidth()/2));
+        bound.y = (int) (getPosY() - (getHeight()/2));
+        bound.width = (int) getWidth();
+        bound.height = (int) getHeight();
+        return bound;
+    }
+    
+    public void drawBoundForCollisionWithMap(Graphics2D g2){
+        Rectangle rect = getBoundForCollisionWithMap();
+        g2.setColor(Color.WHITE);
+        g2.drawRect(rect.x - (int) getGameWorld().camera.getPosX(), rect.y - (int) getGameWorld().camera.getPosY(), rect.width, rect.height);
+    }
+
+    public void drawBoundForCollisionWithEnemy(Graphics2D g2){
+        Rectangle rect = getBoundForCollisionWithEnemy();
+        g2.setColor(Color.RED);
+        g2.drawRect(rect.x - (int) getGameWorld().camera.getPosX(), rect.y - (int) getGameWorld().camera.getPosY(), rect.width, rect.height);
+    }
+
+    public abstract Rectangle getBoundForCollisionWithEnemy();
+
+    public abstract void draw(Graphics2D g2);
+    
+    public void hurtingCallback(){};
+	
 }
