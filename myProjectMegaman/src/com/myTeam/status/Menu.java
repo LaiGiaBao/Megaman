@@ -4,7 +4,7 @@ import com.myTeam.control.Button;
 import com.myTeam.control.RectButton;
 import com.myTeam.user_interface.Frame;
 import com.myTeam.user_interface.GamePanel;
-import com.thach.state.GameWorldState;
+import com.myTeam.status.GameWorld;
 
 import java.awt.Color;
 import java.awt.Graphics;
