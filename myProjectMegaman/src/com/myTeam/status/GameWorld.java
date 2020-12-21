@@ -165,7 +165,7 @@ public class GameWorld extends MainStatus {
         }
     }
     
-    public void Reset(){
+    public void Update(){
         
         switch(state){
             case START:
@@ -393,6 +393,8 @@ public class GameWorld extends MainStatus {
                 break;
                 
         }
+        
         }
+
 	
 }

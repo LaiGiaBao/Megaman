@@ -19,11 +19,11 @@ public class InputManager {
     }
     
     public void processedKeyPress(int keyCode){
-        status.setPressedButton(keyCode);
+        status.processedKeyPress(keyCode);
     }
     
     public void processedKeyRelease(int keyCode){
-        status.setReleasedButton(keyCode);
+        status.processedKeyRelease(keyCode);
     }
     
 }

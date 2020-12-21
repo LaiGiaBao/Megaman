@@ -132,10 +132,11 @@ public class PhysicMap extends GameObject{
             return  null;
 
     }
+		return rectangle;
     }
     public void draw(Graphics2D g2){
         //chi? ve map trong vung ma camera tro den
-        //Camera camera = getGameWorld().camera;
+        Camera camera = getGameWorld().camera;
         //  moi vat can dc minh hoa bang hinh vuong co canh la' sizeofsquares
         g2.setColor(Color.GRAY);
         for(int i = 0;i< physmap.length;i++)

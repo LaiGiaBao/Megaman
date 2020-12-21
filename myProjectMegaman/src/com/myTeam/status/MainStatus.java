@@ -9,7 +9,7 @@ public abstract class MainStatus {
 		this.panel=panel;
 	}
 	
-	public abstract void Reset();
+	public abstract void Update();
     public abstract void Render();
     public abstract BufferedImage getBufferedImage();
     
