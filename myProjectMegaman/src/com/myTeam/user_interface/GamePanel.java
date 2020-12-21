@@ -5,8 +5,6 @@ import com.myTeam.effect.CacheDataLoader;
 import com.myTeam.effect.FrameImage;
 import com.myTeam.game_object.GameObject;
 import com.myTeam.game_object.MegaMan;
-import com.myTeam.status.GameWorld;
-import com.myTeam.status.MainStatus;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -17,7 +15,8 @@ import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
-
+import com.myTeam.status.*;
+import com.myTeam.status.Menu;
 public class GamePanel extends JPanel implements Runnable, KeyListener {
 	MainStatus status;
     private Thread thread;
@@ -28,7 +27,7 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
     //MegaMan megaman = new GameObject(300,300,,0.1f);
     private GameWorld gameWorld;
     public GamePanel(){
-    	//status = new Menu(this);
+    	status = new Menu(this);
         inputManager = new InputManager(gameWorld);
         bufImage = new BufferedImage(Frame.SCREEN_WIDTH, Frame.SCREEN_HEIGHT,BufferedImage.TYPE_INT_ARGB);// RGB -> 3 main colors
 

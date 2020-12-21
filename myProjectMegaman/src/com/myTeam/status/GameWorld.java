@@ -207,7 +207,7 @@ public class GameWorld extends MainStatus {
                     }
                     else{
                         switchState(GAMEOVER);
-                        //bgMusic.stop(); them nhac thi them 
+
                     }
                 }
                 if(!finalbossTrigger && boss.getState() == Object.DEATH)
