@@ -1,16 +1,21 @@
 package com.myTeam.effect;
+
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Hashtable;
+
 //Singleton
 public class CacheDataLoader {
     private static CacheDataLoader instance=null;
 
-    private String framePath = "myProjectMegaman/data/frame.txt";
-    private  String animationPath ="myProjectMegaman/data/animation.txt";
-    private String physmapfile = "myProjectMegaman/data/phys_map.txt";
-    private String backgroundsmapfile = "myProjectMegaman/data/background_map.txt";
+    private String framePath = "data/frame.txt";
+    private String animationPath ="data/animation.txt";
+    private String physmapfile = "data/phys_map.txt";
+    private String backgroundsmapfile = "data/background_map.txt";
 
     private Hashtable<String,FrameImage> frameImages;
     private Hashtable<String, Animation> animations;
@@ -136,37 +141,69 @@ public class CacheDataLoader {
 
         br.close();
     }
+
+    public void LoadBackgroundMap() throws IOException{
+        FileReader fr= new FileReader(backgroundsmapfile);
+        BufferedReader br = new BufferedReader(fr);
+        String line = null;
+        line = br.readLine();
+        int numberOfRows = Integer.parseInt(line);
+        line = br.readLine();
+        int numberOfCollumns = Integer.parseInt(line);
+
+        instance.backgroundmap = new int[numberOfRows][numberOfCollumns];
+
+        for(int i =0;i < numberOfRows;i++){
+            line = br.readLine();
+            String[] str = line.split(" |  ");
+            for(int j =0;j<numberOfCollumns;j++)
+                instance.backgroundmap[i][j] = Integer.parseInt(str[j]);
+        }
+
+        for(int i = 0;i<numberOfRows;i++){
+            for(int j =0;j <numberOfCollumns;j++) System.out.print(" "+instance.backgroundmap[i][j]);
+            System.out.println();
+        }
+        br.close();
+    }
     public void LoadData() throws IOException{
         LoadFrame();
         LoadAnimation();
         LoadPhysMap();
+        LoadBackgroundMap();
     }
-    // doc map tu file txt
-    public void LoadPhysMap() throws IOException {
-        FileReader fr = new FileReader(physmapfile);// sau khi đọc xong 1 file thì output ra 1
+    public void LoadPhysMap() throws IOException{
+
+        FileReader fr = new FileReader(physmapfile);
         BufferedReader br = new BufferedReader(fr);
+
         String line = null;
+
         line = br.readLine();
-        int numberrow = Integer.parseInt(line);// doc so cot
+        int numberOfRows = Integer.parseInt(line);
         line = br.readLine();
-        int numbercoll = Integer.parseInt(line);// doc so dong
-        instance.physmap = new int[numberrow][numbercoll];
-        // doc file physmap
-        for (int i = 0;i<numberrow;i++) {
+        int numberOfColumns = Integer.parseInt(line);
+
+
+        instance.physmap = new int[numberOfRows][numberOfColumns];
+
+        for(int i = 0;i < numberOfRows;i++){
             line = br.readLine();
-            String [] arr  = line.split(" ");
-            for(int j=0;i<numbercoll;j++) {
-                instance.physmap[i][j]=Integer.parseInt(arr[j]);
-            }
+            String [] str = line.split(" ");
+            for(int j = 0;j<numberOfColumns;j++)
+                instance.physmap[i][j] = Integer.parseInt(str[j]);
         }
-        // ve map du vao file da doc text thu in ra man hinh
-        for (int i=0;i<numberrow;i++) {
-            for (int j=0;j<numbercoll;j++) {
+
+        for(int i = 0;i < numberOfRows;i++){
+
+            for(int j = 0;j<numberOfColumns;j++)
                 System.out.print(" "+instance.physmap[i][j]);
-            }
+
             System.out.println();
         }
+
         br.close();
+
     }
     public int[][] getPhysmap() {
         return physmap;

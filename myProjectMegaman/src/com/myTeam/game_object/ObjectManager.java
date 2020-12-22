@@ -1,7 +1,7 @@
 package com.myTeam.game_object;
 
 import com.myTeam.status.GameWorld;
-import com.thach.gameobject.ParticularObject;
+import com.myTeam.game_object.Object;
 
 import java.awt.Graphics2D;
 import java.util.Collections;
