@@ -20,14 +20,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="18ccad57-541e-4898-a466-d82a85a75849" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/.classpath" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.project" beforeDir="false" afterPath="$PROJECT_DIR$/.project" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.core.resources.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/.settings/org.eclipse.core.resources.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Megaman.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Megaman.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myProjectMegaman/out/production/myProjectMegaman/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/myProjectMegaman/out/production/myProjectMegaman/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/control/Button.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/control/Button.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/control/RectButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/control/RectButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/effect/CacheDataLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/effect/CacheDataLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/BackGround.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/BackGround.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/Boss.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/Boss.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/Bullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/Bullet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/BulletManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/BulletManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/Camera.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/Character.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/GameObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/user_interface/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/user_interface/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/user_interface/InputManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/user_interface/InputManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/control/RectButton.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/game_object/GameObject.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/user_interface/GamePanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/user_interface/InputManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/MegaMan.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/MegaMan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/Object.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/Object.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/ObjectManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/ObjectManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/PhysicMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/PhysicMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/RedBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/RedBot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/RedBotBullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/RedBotBullet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/status/GameWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/status/GameWorld.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/status/MainStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/status/MainStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/status/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/status/Menu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,17 +78,6 @@
     <property name="last_opened_file_path" value="D:/MegaMan2/src/com/thach/gameobject/Human.java" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Frame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.myTeam.user_interface.Frame" />
       <module name="Megaman" />
@@ -76,6 +87,17 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
