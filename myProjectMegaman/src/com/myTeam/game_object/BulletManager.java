@@ -1,7 +1,6 @@
 package com.myTeam.game_object;
 
 import com.myTeam.status.GameWorld;
-import com.myTeam.game_object.ObjectManager;
 
 public class BulletManager extends ObjectManager{
 	public BulletManager(GameWorld gameWorld) {
@@ -11,13 +10,13 @@ public class BulletManager extends ObjectManager{
     @Override
     public void UpdateObjects() {
         super.UpdateObjects(); 
-        synchronized(listOfObject){
-            for(int i = 0; i < listOfObject.size(); i++){
+        synchronized(listOfObjects){
+            for(int i = 0; i < listOfObjects.size(); i++){
                 
-                Object object = listOfObject.get(i);
+                ObjectO objectO = listOfObjects.get(i);
                 
-                if(object.isObjectOutOfCameraView() || object.getState() == Object.DEATH){
-                	listOfObject.remove(i);
+                if(objectO.isObjectOutOfCameraView() || objectO.getState() == ObjectO.DEATH){
+                	listOfObjects.remove(i);
                 }
             }
         }

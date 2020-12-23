@@ -3,7 +3,7 @@ package com.myTeam.game_object;
 import com.myTeam.status.GameWorld;
 import java.awt.Rectangle;
 
-public abstract class Character extends Object{
+public abstract class Character extends ObjectO {
     // trang thai dang nhay
     private  boolean isJump;
     // dang quy

@@ -18,13 +18,8 @@ public class MegaMan extends Character {
     private float height;
     GameWorld gameWorld;
     private float speedY;
-    public MegaMan(float posX,float posY,float width,float height,float mass,GameWorld gameWorld) {
-        this.posX=posX;
-        this.posY=posY;
-        this.width=width;
-        this.height=height;
-        this.mass=mass;
-        this.gameWorld=gameWorld;
+    public MegaMan(float x, float y, GameWorld gameWorld) {
+        super(x, y, 70, 90, 0.1f, 100, gameWorld);
     }
     // tao 1 hinh chu nhat bao quanh nhan vat de xu ly' va cham vs Map vs creeps
     public Rectangle getBoundsofmegaman() {
@@ -146,11 +141,7 @@ public class MegaMan extends Character {
 		// TODO Auto-generated method stub
 		
 	}
-	@Override
-	public Rectangle boundCollisionEnemy() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 	@Override
 	public void draw(Graphics2D g) {
 		// TODO Auto-generated method stub

@@ -8,8 +8,4 @@ import java.awt.Rectangle;
 import java.util.Hashtable; //trong animation can nen t import vo luon
 
 
-public class Boss extends Character {
-	Boss() {
-	    super();
-    }
-}
+public class Boss {}

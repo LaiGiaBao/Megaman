@@ -37,6 +37,6 @@ public class Frame extends JFrame {
         Frame gameFrame = new Frame();
         gameFrame.setVisible(true);
         gameFrame.startGame();
-        //int n=Integer.parseInt(line.replaceAll("\\D+", ""));
+
     }
 }

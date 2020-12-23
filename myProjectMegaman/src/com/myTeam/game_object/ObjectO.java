@@ -4,7 +4,7 @@ import com.myTeam.status.GameWorld;
 import com.myTeam.effect.Animation;
 import java.awt.*;
 
-public abstract class Object extends GameObject {
+public abstract class ObjectO extends GameObject {
     //cung team (ko bi mat mau khi megaman tan cong
     public static final int LEAGUETEAM = 1;
     // team dich tan cong lan nhau
@@ -41,7 +41,7 @@ public abstract class Object extends GameObject {
     // thoi gian bat tu sau khi hoi sinh
     private long startTimeNoBeHurt;
     private long timeForNoBeHurt;
-    public Object(float x,float y,float width,float height,float mass,int blood,GameWorld gameWorld) {
+    public ObjectO(float x, float y, float width, float height, float mass, int blood, GameWorld gameWorld) {
         super(x,y,gameWorld);
         setWidth(width);
         setHeight(height);

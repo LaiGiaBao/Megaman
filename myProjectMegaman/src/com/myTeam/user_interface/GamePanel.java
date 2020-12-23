@@ -27,6 +27,7 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
     //MegaMan megaman = new GameObject(300,300,,0.1f);
     private GameWorld gameWorld;
     public GamePanel(){
+        gameWorld = new GameWorld(this);
     	status = new Menu(this);
         inputManager = new InputManager(gameWorld);
         bufImage = new BufferedImage(Frame.SCREEN_WIDTH, Frame.SCREEN_HEIGHT,BufferedImage.TYPE_INT_ARGB);// RGB -> 3 main colors

@@ -5,9 +5,8 @@ import com.myTeam.effect.FrameImage;
 import com.myTeam.game_object.BackGround;
 import com.myTeam.game_object.BulletManager;
 import com.myTeam.game_object.Camera;
-import com.myTeam.game_object.Boss;
 import com.myTeam.game_object.MegaMan;
-import com.myTeam.game_object.Object;
+import com.myTeam.game_object.ObjectO;
 import com.myTeam.game_object.ObjectManager;
 import com.myTeam.game_object.PhysicMap;
 import com.myTeam.game_object.RedBot;
@@ -54,7 +53,7 @@ public class GameWorld extends MainStatus {
     public int currentSize = 1;
     
     private boolean finalbossTrigger = true;
-    Object boss;
+    ObjectO boss;
     
     FrameImage avatar = CacheDataLoader.getInstance().getFrameImage("avatar");
     
@@ -67,7 +66,7 @@ public class GameWorld extends MainStatus {
 
         
         bufferedImage = new BufferedImage(Frame.SCREEN_WIDTH, Frame.SCREEN_HEIGHT, BufferedImage.TYPE_INT_ARGB);
-        //megaMan = new MegaMan(, , );
+        megaMan = new MegaMan(300,300 ,this );
         physicMap = new PhysicMap(0, 0, this);
         backGround = new BackGround(0, 0, this);
         camera = new Camera(0, 50, Frame.SCREEN_WIDTH, Frame.SCREEN_HEIGHT, this);
@@ -81,9 +80,9 @@ public class GameWorld extends MainStatus {
     }
     
     private void initEnemies(){
-        Object redbot = new RedBot(1300, 440, this);
-        redbot.setDirection(Object.LEFTDIR);
-        redbot.setTeamType(Object.ENEMYTEAM);
+        ObjectO redbot = new RedBot(1300, 440, this);
+        redbot.setDirection(ObjectO.LEFTDIR);
+        redbot.setTeamType(ObjectO.ENEMYTEAM);
         objectManager.addObject(redbot);
         
         // se tao them nhieu con sau 
@@ -111,7 +110,7 @@ public class GameWorld extends MainStatus {
                     }
                     
                     if(megaMan.getPosX() < finalBossX + 150){
-                        megaMan.setDirection(Object.RIGHTDIR);
+                        megaMan.setDirection(ObjectO.RIGHTDIR);
                         megaMan.run();
                         megaMan.Update();
                     }
@@ -197,12 +196,12 @@ public class GameWorld extends MainStatus {
 
                 }
                 
-                if(megaMan.getState() == Object.DEATH){
+                if(megaMan.getState() == ObjectO.DEATH){
                     numOfLife = numOfLife - 1 ;
                     if(numOfLife >= 0){
                         megaMan.setBlood(100);
                         megaMan.setPosY(megaMan.getPosY() - 50);
-                        megaMan.setState(Object.NOBEHURT);
+                        megaMan.setState(ObjectO.NOBEHURT);
                         objectManager.addObject(megaMan);
                     }
                     else{
@@ -210,7 +209,7 @@ public class GameWorld extends MainStatus {
 
                     }
                 }
-                if(!finalbossTrigger && boss.getState() == Object.DEATH)
+                if(!finalbossTrigger && boss.getState() == ObjectO.DEATH)
                     switchState(GAMEWIN);
                 
                 break;
@@ -396,5 +395,11 @@ public class GameWorld extends MainStatus {
         
         }
 
-	
+    public PhysicMap getPhysicMap() {
+        return physicMap;
+    }
+
+    public void setPhysicMap(PhysicMap physicMap) {
+        this.physicMap = physicMap;
+    }
 }
