@@ -18,7 +18,7 @@ import java.io.IOException;
 import com.myTeam.status.*;
 import com.myTeam.status.Menu;
 public class GamePanel extends JPanel implements Runnable, KeyListener {
-	MainStatus status;
+	MainStatus mainStatus;
     private Thread thread;
     private boolean isRunning;
     InputManager inputManager;
@@ -27,19 +27,19 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
     //MegaMan megaman = new GameObject(300,300,,0.1f);
     private GameWorld gameWorld;
     public GamePanel(){
-        gameWorld = new GameWorld(this);
-    	status = new Menu(this);
-        inputManager = new InputManager(gameWorld);
-        bufImage = new BufferedImage(Frame.SCREEN_WIDTH, Frame.SCREEN_HEIGHT,BufferedImage.TYPE_INT_ARGB);// RGB -> 3 main colors
+        //gameWorld = new GameWorld(this);
+    	mainStatus = new Menu(this);
+        inputManager = new InputManager(mainStatus);
+        //bufImage = new BufferedImage(Frame.SCREEN_WIDTH, Frame.SCREEN_HEIGHT,BufferedImage.TYPE_INT_ARGB);// RGB -> 3 main colors
 
     }
     
-    public void UpdateGame() {
+   // public void UpdateGame() {
 
-        gameWorld.Update();
-    }
+        //gameWorld.Update();
+    //}
     
-    public void RenderGame(){
+    /*public void RenderGame(){
         if(bufImage == null){
             bufImage = new BufferedImage(Frame.SCREEN_WIDTH, Frame.SCREEN_HEIGHT,BufferedImage.TYPE_INT_ARGB);
         }
@@ -60,12 +60,12 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
             bufG2D.fillRect(40,50,100,100);
             megaman.draw(bufG2D);*/
 
-        }
-    }
+        //}
+    //}
     @Override
     public void paint(Graphics g){
 
-      //  g.drawImage(bufImage,0,0,this);
+    	g.drawImage(mainStatus.getBufferedImage(), 0, 0, this);
 
     }
     public void start(){
@@ -83,13 +83,8 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
         long sleepTime;
         beginTime = System.nanoTime();
         while(isRunning){
-            /*
-            * Update game*/
-            UpdateGame();
-           /* Render game
-            * */
-            RenderGame();
-            repaint();
+        	mainStatus.Update();
+            mainStatus.Render();
             long deltaTime = System.nanoTime() - beginTime;
             sleepTime = period - deltaTime;
             try {
@@ -128,7 +123,7 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
     }
     
     public void setState(MainStatus status) {
-    	this.status=status;
+    	mainStatus=status;
         inputManager.setState(status);
     }
 }

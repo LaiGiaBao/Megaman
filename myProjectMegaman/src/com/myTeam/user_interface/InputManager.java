@@ -8,22 +8,22 @@ import java.awt.event.KeyEvent;
 
 public class InputManager {
     
-    private MainStatus status;
+    private MainStatus mainStatus;
     
     public InputManager(MainStatus status){
-        this.status = status;
+        this.mainStatus = status;
     }
     
     public void setState(MainStatus status) {
-        this.status=status;
+    	mainStatus=status;
     }
     
     public void processedKeyPress(int keyCode){
-        status.processedKeyPress(keyCode);
+    	mainStatus.processedKeyPress(keyCode);
     }
     
     public void processedKeyRelease(int keyCode){
-        status.processedKeyRelease(keyCode);
+    	mainStatus.processedKeyRelease(keyCode);
     }
     
 }

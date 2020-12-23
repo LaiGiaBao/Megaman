@@ -32,6 +32,7 @@ public class Frame extends JFrame {
     }
     public void startGame(){
         gamePanel.start();
+        gamePanel.setVisible(true);
     }
     public static void main(String[] args) throws IOException {
         Frame gameFrame = new Frame();
