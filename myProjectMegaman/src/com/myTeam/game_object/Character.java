@@ -1,9 +1,9 @@
 package com.myTeam.game_object;
 
-import com.myTeam.status.GameWorld;
+import com.myTeam.status.*;
 import java.awt.Rectangle;
 
-public abstract class Character extends Object{
+public abstract class Character extends ObjectO {
     // trang thai dang nhay
     private  boolean isJump;
     // dang quy
@@ -11,19 +11,19 @@ public abstract class Character extends Object{
 
     //hanh dong luc tiep dat ( lam' them cho nhin dep) chay 1 Animation
     private  boolean land;
-    public Character(float x, float y, float width, float height, float mass, int blood, GameWorld gameWorld) {
-        super(x,y,width,height,mass,blood,gameWorld);
+    public Character(float x, float y, float width, float height, float mass,int damge, int blood, GameWorld gameWorld) {
+        super(x,y,width,height,mass,damge,blood,gameWorld);
         setState(ALIVE);
     }
+   // public abstract void hurtingCallback();
+    public abstract Rectangle getBoundForCollisionWithEnemy();
     public abstract void run();
     public abstract void jump();
     public abstract void dick();
     public abstract void standUp();
     public abstract void standRun();
     public abstract void stopRun();
-    public boolean getisJump() {
-        return  isJump;
-    }
+    public abstract void attack();
 
     public boolean isLand() {
         return land;

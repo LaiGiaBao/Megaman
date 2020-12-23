@@ -1,16 +1,20 @@
 package com.myTeam.game_object;
 
 import java.awt.*;
-import com.myTeam.status.GameWorld;
-
+import com.myTeam.status.*;
+import java.applet.AudioClip;
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.event.KeyEvent;
+import java.awt.image.BufferedImage;
 public abstract class GameObject {
     private float posX;
     private float posY;
 	private GameWorld world;
 	
-	public GameObject(float posX, float posY, GameWorld world){
-		this.posX=posX;
-		this.posY=posY;
+	public GameObject(float x, float y, GameWorld world){
+		posX=x;
+		posY=y;
 		this.world=world;
 	}
 	
@@ -29,11 +33,13 @@ public abstract class GameObject {
 	public float getPosY(){
 		return posY;
 	}
-	
+
 	public GameWorld getGameWorld(){
 		return world;
 	}
-	
+
+
+
 	public abstract void Update();
 	
 }

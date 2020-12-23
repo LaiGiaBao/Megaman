@@ -1,10 +1,10 @@
 package com.myTeam.game_object;
 
-import com.myTeam.status.GameWorld;
+import com.myTeam.status.*;
 import com.myTeam.effect.Animation;
 import java.awt.*;
 
-public abstract class Object extends GameObject {
+public abstract class ObjectO extends GameObject {
     //cung team (ko bi mat mau khi megaman tan cong
     public static final int LEAGUETEAM = 1;
     // team dich tan cong lan nhau
@@ -16,7 +16,7 @@ public abstract class Object extends GameObject {
     public static final int ALIVE = 0;
     // bi trung chieu
     public static final int BEHURT = 1;
-    // gan chet'
+    // gan chet' ( ko co lam chung nao ranh lam them animation cho may con gan chet)
     public static final int FEY = 2;
     public static final int DEATH = 3;
     // bat tu sau khi hoi sinh
@@ -41,21 +41,23 @@ public abstract class Object extends GameObject {
     // thoi gian bat tu sau khi hoi sinh
     private long startTimeNoBeHurt;
     private long timeForNoBeHurt;
-    public Object(float x,float y,float width,float height,float mass,int blood,GameWorld gameWorld) {
+    public ObjectO(float x,float y,float width,float height,float mass,int damage,int blood,GameWorld gameWorld) {
         super(x,y,gameWorld);
         setWidth(width);
         setHeight(height);
         setMass(mass);
         setBlood(blood);
-
+        setDamage(damage);
         direction = RIGHTDIR;
     }
+
+
 
     public long getTimeForNoBeHurt() {
         return timeForNoBeHurt;
     }
 
-    public long getStartTimeNoBeHurt() {
+    public long getStartTimeNoBeHurt(int i) {
         return startTimeNoBeHurt;
     }
 
@@ -87,10 +89,7 @@ public abstract class Object extends GameObject {
         return behurtBackAnim;
     }
 
-    @Override
-    public GameWorld getGameWorld() {
-        return super.getGameWorld();
-    }
+
 
     @Override
     public float getPosY() {
@@ -187,7 +186,7 @@ public abstract class Object extends GameObject {
     public void setSpeedY(float speedY) {
         this.speedY = speedY;
     }
-    public void attach() {}
+
     // ve 1 rectangle xung quanh doi tuong giong megaman
     public Rectangle getBoundsofmegaman() {
         Rectangle rectangle = new Rectangle();
@@ -239,6 +238,47 @@ public abstract class Object extends GameObject {
                 break;
         }
     }
-    public abstract  Rectangle boundCollisionEnemy() ;
-    public abstract  void draw(Graphics2D g);
+    // check xem object co out camera ko
+    public boolean isoutofcameraView() {
+        if (getPosX()-getGameWorld().getCamera().getPosX() > getGameWorld().getCamera().getWidthView()
+                || getPosX() - getGameWorld().getCamera().getPosX() <-50
+                || getPosY() - getGameWorld().getCamera().getPosX() > getGameWorld().getCamera().getHeightView()
+                || getPosY() - getGameWorld().getCamera().getPosY() < -50 ) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    public void beHurt(int damge){
+        setBlood(getBlood() - damge);
+        state = BEHURT;
+        hurtingCallback();
+    }
+    public void drawBoundForCollisionWithMap(Graphics2D g2){
+        Rectangle rect = getBoundsofmegaman();
+        g2.setColor(Color.BLUE);
+        g2.drawRect(rect.x - (int) getGameWorld().getCamera().getPosX(), rect.y - (int) getGameWorld().getCamera().getPosY(), rect.width, rect.height);
+    }
+
+    public void drawBoundForCollisionWithEnemy(Graphics2D g2){
+        Rectangle rect = getBoundForCollisionWithEnemy();
+        g2.setColor(Color.RED);
+        g2.drawRect(rect.x - (int) getGameWorld().getCamera().getPosX(), rect.y - (int) getGameWorld().getCamera().getPosY(), rect.width, rect.height);
+    }
+
+    public abstract Rectangle getBoundForCollisionWithEnemy();
+    public boolean isObjectoutofcameraview() {
+        if ( getPosX() - getGameWorld().getCamera().getPosX() < -50||getPosX() - getGameWorld().getCamera().getPosX() > getGameWorld().getCamera().getWidthView() || getPosY() - getGameWorld().getCamera().getPosY() > -50||getPosY() - getGameWorld().getCamera().getPosY() > getGameWorld().getCamera().getHeightView()  ) {
+            return  true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public abstract void draw(Graphics2D g2);
+
+    public void hurtingCallback(){};
+    public abstract void attack() ;
 }

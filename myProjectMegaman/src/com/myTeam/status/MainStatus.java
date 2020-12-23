@@ -1,6 +1,8 @@
 package com.myTeam.status;
 
 import com.myTeam.user_interface.GamePanel;
+
+import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public abstract class MainStatus {

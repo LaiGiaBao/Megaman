@@ -6,6 +6,6 @@ import com.myTeam.user_interface.Frame;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-public class BackGround extends GameObject{
+/*public class BackGround extends GameObject{
 
-}
+}*/

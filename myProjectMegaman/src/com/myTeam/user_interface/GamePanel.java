@@ -5,8 +5,9 @@ import com.myTeam.effect.CacheDataLoader;
 import com.myTeam.effect.FrameImage;
 import com.myTeam.game_object.GameObject;
 import com.myTeam.game_object.MegaMan;
-import com.myTeam.status.GameWorld;
-
+import com.myTeam.status.*;
+import com.myTeam.status.MainStatus;
+import com.myTeam.status.Menu;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -23,16 +24,18 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
     InputManager inputManager;
     private BufferedImage bufImage;
     private Graphics2D bufG2D;
-    //MegaMan megaman = new GameObject(300,300,,0.1f);
-    private GameWorld gameWorld;
+    GameWorld gameWorld;
+    //InputManager inputManager;
+    MegaMan megaMan;
+    //MegaMan megaman = new GameObject(300, 300, gameWorld);
+    Menu menu;
     GamePanel(){
-        gameWorld = new GameWorld();
-        inputManager = new InputManager(gameWorld);
+        gameWorld = new GameWorld(this);
+        //inputManager = new InputManager(this);
         bufImage = new BufferedImage(Frame.SCREEN_WIDTH, Frame.SCREEN_HEIGHT,BufferedImage.TYPE_INT_ARGB);// RGB -> 3 main colors
-
+      //  megaMan = new GameObject(300, 300, this);
     }
     public void UpdateGame() {
-
         gameWorld.Update();
     }
     public void RenderGame(){
@@ -46,15 +49,14 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
             //draw every object in here
             bufG2D.setColor(Color.DARK_GRAY);
             bufG2D.fillRect(0,0,Frame.SCREEN_WIDTH,Frame.SCREEN_HEIGHT);
-
-            gameWorld.Render(bufG2D);
-     /*       bufG2D.setColor(Color.CYAN);
+            gameWorld.Render();
+            bufG2D.setColor(Color.CYAN);
             bufG2D.fillRect(40,50,100,100);
-            megaman.draw(bufG2D);
+         //   megaman.draw(bufG2D);
 
             bufG2D.setColor(Color.CYAN);
             bufG2D.fillRect(40,50,100,100);
-            megaman.draw(bufG2D);*/
+           // megaman.draw(bufG2D);
 
         }
     }
@@ -95,7 +97,7 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
                 else {Thread.sleep(period/2000000);}
             } catch (InterruptedException e) {
                 e.printStackTrace();
-            }
+             }
             beginTime = System.nanoTime();
         }
     }
@@ -106,7 +108,8 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        inputManager.processedKeyPress(e.getKeyCode());
+
+         inputManager.processedKeyPress(e.getKeyCode());
     }
 
     @Override
@@ -116,6 +119,7 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
     }
 
     public void setGameWorld(GameWorld gameWorld) {
+
         this.gameWorld = gameWorld;
     }
 
