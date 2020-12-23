@@ -12,10 +12,10 @@ import java.util.Hashtable;
 public class CacheDataLoader {
     private static CacheDataLoader instance=null;
 
-    private String framePath = "data/frame.txt";
-    private String animationPath ="data/animation.txt";
-    private String physmapfile = "data/phys_map.txt";
-    private String backgroundsmapfile = "data/background_map.txt";
+    private String framePath = "myProjectMegaman/data/frame.txt";
+    private String animationPath ="myProjectMegaman/data/animation.txt";
+    private String physmapfile = "myProjectMegaman/data/phys_map.txt";
+    private String backgroundsmapfile = "myProjectMegaman/data/background_map.txt";
 
     private Hashtable<String,FrameImage> frameImages;
     private Hashtable<String, Animation> animations;
