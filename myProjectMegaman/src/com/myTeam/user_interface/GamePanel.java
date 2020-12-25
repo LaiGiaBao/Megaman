@@ -4,12 +4,16 @@ import com.myTeam.effect.Animation;
 import com.myTeam.effect.CacheDataLoader;
 import com.myTeam.effect.FrameImage;
 import com.myTeam.game_object.GameObject;
+<<<<<<< Updated upstream
 import com.myTeam.game_object.MegaMan;
 
 import com.myTeam.status.*;
 import com.myTeam.status.MainStatus;
 import com.myTeam.status.Menu;
 
+=======
+import com.myTeam.game_object.PhysMap;
+>>>>>>> Stashed changes
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -19,8 +23,12 @@ import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+<<<<<<< Updated upstream
 import com.myTeam.status.*;
 import com.myTeam.status.Menu;
+=======
+import com.myTeam.game_object.GameWorld;
+>>>>>>> Stashed changes
 public class GamePanel extends JPanel implements Runnable, KeyListener {
     MainStatus mainStatus;
     private Thread thread;
@@ -28,6 +36,7 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
     public InputManager inputManager;
     private BufferedImage bufImage;
     private Graphics2D bufG2D;
+<<<<<<< Updated upstream
     public GameWorld gameWorld;
 
     MegaMan megaMan;
@@ -59,6 +68,20 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
 inputManager.setReleasedButton(e.getKeyCode());
+=======
+   // private PhysMap phympa = new PhysMap(0,0);
+    //GameObject megaman = new GameObject(300,300,100,100,0.1f);
+    public GameWorld gameWorld;
+    //public GameObject megaman;
+    public GamePanel(){
+        gameWorld = new GameWorld();
+        inputManager = new InputManager(gameWorld);
+        bufImage = new BufferedImage(Frame.SCREEN_WIDTH, Frame.SCREEN_HEIGHT,BufferedImage.TYPE_INT_ARGB);// RGB -> 3 main colors
+    }
+    public void UpdateGame() {
+        gameWorld.Update();
+        //megaman.update();
+>>>>>>> Stashed changes
     }
 
     @Override
@@ -125,6 +148,7 @@ inputManager.setReleasedButton(e.getKeyCode());
         }
         if(bufG2D != null){
             //draw every object in here
+<<<<<<< Updated upstream
             bufG2D.setColor(Color.DARK_GRAY);
             bufG2D.fillRect(0,0,Frame.SCREEN_WIDTH,Frame.SCREEN_HEIGHT);
              gameWorld.Render();
@@ -142,6 +166,29 @@ inputManager.setReleasedButton(e.getKeyCode());
 
         //}
     //}
+=======
+          //  bufG2D.setColor(Color.DARK_GRAY);
+           // bufG2D.fillRect(0,0,Frame.SCREEN_WIDTH,Frame.SCREEN_HEIGHT);
+//<<<<<<< HEAD
+//<<<<<<< HEAD
+           bufG2D.setColor(Color.CYAN);
+            bufG2D.fillRect(0,0,Frame.SCREEN_WIDTH,Frame.SCREEN_HEIGHT);
+            gameWorld.Render(bufG2D);
+
+
+//=======
+//>>>>>>> 8583ca9107abd5105c1030bdec86831aa0ef1036
+//=======
+
+           // bufG2D.setColor(Color.WHITE);
+            //bufG2D.fillRect(0,0,Frame.SCREEN_WIDTH,Frame.SCREEN_HEIGHT);
+            //phympa.draw(bufG2D);
+
+
+//>>>>>>> de59c335af0cd92608c7757908c75a0043414f51
+        }
+    }
+>>>>>>> Stashed changes
     @Override
     public void paint(Graphics g){
 
@@ -195,6 +242,7 @@ inputManager.setReleasedButton(e.getKeyCode());
 
     }
 
+<<<<<<< Updated upstream
     public void setGameWorld(GameWorld gameWorld) {
 
         this.gameWorld = gameWorld;
@@ -208,6 +256,9 @@ inputManager.setReleasedButton(e.getKeyCode());
     	mainStatus=status;
         inputManager.setState(status);
     }
+=======
+
+>>>>>>> Stashed changes
 }
     }
 

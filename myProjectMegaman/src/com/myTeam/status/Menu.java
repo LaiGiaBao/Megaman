@@ -1,4 +1,4 @@
-package com.myTeam.status;
+/*package com.myTeam.status;
 
 import com.myTeam.control.Button;
 import com.myTeam.control.RectButton;
@@ -11,7 +11,7 @@ import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 
-public class Menu extends MainStatus {
+/*public class Menu extends MainStatus {
     
     public final int numButton = 2;
     private BufferedImage buffImage;
@@ -107,6 +107,7 @@ public class Menu extends MainStatus {
         }
     }
 
+<<<<<<< Updated upstream
 	@Override
 	public void processedKeyRelease(int keyCode) {
 	    
@@ -116,3 +117,7 @@ public class Menu extends MainStatus {
 	}
 
 
+=======
+}
+*/
+>>>>>>> Stashed changes
