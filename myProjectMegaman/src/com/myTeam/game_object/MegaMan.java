@@ -3,11 +3,12 @@ package com.myTeam.game_object;
 import com.myTeam.status.*;
 import com.myTeam.effect.Animation;
 import com.myTeam.effect.CacheDataLoader;
-import com.myTeam.*;
+
 import java.applet.AudioClip;
 import java.awt.*;
 
 public class MegaMan extends Character {
+
 
     public static final int RUNSPEED = 3;
 
@@ -22,18 +23,21 @@ public class MegaMan extends Character {
     private long lastShootingTime;
     private boolean isShooting = false;
 
-   // private AudioClip hurtingSound;
+    // private AudioClip hurtingSound;
     private AudioClip shooting1;
 
-    public MegaMan(float x, float y, GameWorld gameWorld) {
-        super(x, y, 70, 90, 0.1f, 100,500, gameWorld);
 
-      //  shooting1 = CacheDataLoader.getInstance().getSound("bluefireshooting");
-       // hurtingSound = CacheDataLoader.getInstance().getSound("megamanhurt");
+    public MegaMan(float x, float y, float width, float height, float mass, int damge, int blood, GameWorld gameWorld) {
+        super(x, y, width, height, mass, damge, blood, gameWorld);
+
+        //  super(x, y, 70, 90, 0.1f, 100, 500, gameWorld);
+
+        //  shooting1 = CacheDataLoader.getInstance().getSound("bluefireshooting");
+        // hurtingSound = CacheDataLoader.getInstance().getSound("megamanhurt");
 
         setTeamType(LEAGUETEAM);
 
-        setTimeForNoBeHurt(2000*1000000);
+        setTimeForNoBeHurt(2000 * 1000000);
 
         runForwardAnim = CacheDataLoader.getInstance().getAnimation("run");
         runBackAnim = CacheDataLoader.getInstance().getAnimation("run");
@@ -76,7 +80,25 @@ public class MegaMan extends Character {
         flyShootingForwardAnim = CacheDataLoader.getInstance().getAnimation("flyingupshoot");
         flyShootingBackAnim = CacheDataLoader.getInstance().getAnimation("flyingupshoot");
         flyShootingBackAnim.flipAllImage();
+    }
 
+    @Override
+    public Rectangle getBoundForCollisionWithEnemy() {
+        Rectangle rectangle = getBoundsofmegaman();
+
+        if (isDick()) {
+            rectangle.x=(int) getPosX() -20;
+            rectangle.y=(int) getPosY() - 20;
+            rectangle.width = 44;
+            rectangle.height = 65;
+        }
+        else {
+            rectangle.x=(int) getPosX() -22;
+            rectangle.y=(int) getPosY() - 40;
+            rectangle.width = 44;
+            rectangle.height = 65;
+        }
+        return  rectangle;
     }
 
     @Override
@@ -84,15 +106,15 @@ public class MegaMan extends Character {
 
         super.Update();
 
-        if(isShooting){
-            if(System.nanoTime() - lastShootingTime > 500*1000000){
+        if (isShooting) {
+            if (System.nanoTime() - lastShootingTime > 500 * 1000000) {
                 isShooting = false;
             }
         }
 
-        if(isLand()){
+        if (isLand()) {
             landingBackAnim.Update(System.nanoTime());
-            if(landingBackAnim.isLastFrame()) {
+            if (landingBackAnim.isLastFrame()) {
                 setLand(false);
                 landingBackAnim.reset();
                 runForwardAnim.reset();
@@ -102,124 +124,122 @@ public class MegaMan extends Character {
 
     }
 
-    /*@Override
-    public Rectangle boundCollisionEnemy() {
-        return null;
-    }*/
+    /* private float posX;
+     private float posY;
+     private float speedX;
+     private float mass;
+     private float DIR_LEF;
+     private float DIR_RIGHT;
+     private float direction;
+     private float width;
+     private float height;
+     GameWorld gameWorld;
+     private float speedY;
+ public MegaMan( float x, float y, GameWorld gameWorld){
+         super(x, y, 70, 90, 0.1f, 100, gameWorld);
+     }*/
+    // tao 1 hinh chu nhat bao quanh nhan vat de xu ly' va cham vs Map vs creeps
+    public Rectangle getBoundsofmegaman() {
+        Rectangle rectangle = new Rectangle();
+        rectangle.x = (int) (getPosX() - getWidth() / 2);
+        rectangle.y = (int) (getPosY() - getHeight() / 2);
+        rectangle.width = (int) getWidth();
+        rectangle.height = (int) getHeight();
+        return rectangle;
 
-    @Override
-    // va cham vs enemy
-    public Rectangle getBoundForCollisionWithEnemy() {
-        Rectangle rect = getBoundsofmegaman();
-        // hinh chua nhat bao quanh nhan vat co toa do x,y bang dau la
-        if(isDick()){
-            rect.x = (int) getPosX() - 22;
-            // khi ngoi thi bound khac khi dung va bay
-            rect.y = (int) getPosY() - 20;
-            rect.width = 44;
-            rect.height = 65;
-        }else{
-            rect.x = (int) getPosX() - 22;
-            rect.y = (int) getPosY() - 40;
-            rect.width = 44;
-            rect.height = 80;
-        }
-
-        return rect;
     }
-    // moi state se co 1 action rieng
-    @Override
+
+
     public void draw(Graphics2D g2) {
 
-        switch(getState()){
+        switch (getState()) {
             // con song or ko nhan damge
             case ALIVE:
             case NOBEHURT:
                 // tao ra su kien luc co luc ko ( nhap'  nhay' hinh anh)
-                if(getState() == NOBEHURT && (System.nanoTime()/10000000)%2!=1)
-                {
+                if (getState() == NOBEHURT && (System.nanoTime() / 10000000) % 2 != 1) {
                     System.out.println("Plash...");
-                }else{
-                // luc tiep dat' ( X khuyu goi khi tiep dat
-                    if(isLand()){
+                } else {
+                    // luc tiep dat' ( X khuyu goi khi tiep dat
+                    if (isLand()) {
                         // update landingfor....
-                        if(getDirection() == RIGHTDIR){
+                        if (getDirection() == RIGHTDIR) {
                             landingForwardAnim.setCurrentFrame(landingBackAnim.getCurrentFrame());
                             landingForwardAnim.draw((int) (getPosX() - getGameWorld().getCamera().getPosX()),
-                                    (int) getPosY() - (int) getGameWorld().getCamera().getPosY() + (getBoundsofmegaman().height/2 - landingForwardAnim.getCurrentImage().getHeight()/2),
+                                    (int) getPosY() - (int) getGameWorld().getCamera().getPosY() + (getBoundsofmegaman().height / 2 - landingForwardAnim.getCurrentImage().getHeight() / 2),
                                     g2);
-                        }else{
+                        } else {
                             landingBackAnim.draw((int) (getPosX() - getGameWorld().getCamera().getPosX()),
-                                    (int) getPosY() - (int) getGameWorld().getCamera().getPosY() + (getBoundsofmegaman().height/2 - landingBackAnim.getCurrentImage().getHeight()/2),
+                                    (int) getPosY() - (int) getGameWorld().getCamera().getPosY() + (getBoundsofmegaman().height / 2 - landingBackAnim.getCurrentImage().getHeight() / 2),
                                     g2);
                         }
 
-                    }else if(isJump()){
+                    } else if (isJump()) {
                         // huong khi dang nhat
-                        if(getDirection() == RIGHTDIR){
+                        if (getDirection() == RIGHTDIR) {
                             flyForwardAnim.Update(System.nanoTime());
                             // vua nhay vua ban
                             // chi update shoooting khi player ban' thi' ngay khi ban update animation shooting tu luc' do' cho toi' khi cham dat'
-                            if(isShooting){
+                            if (isShooting) {
                                 // flyShooting vua bay vua ban
                                 flyShootingForwardAnim.setCurrentFrame(flyForwardAnim.getCurrentFrame());
                                 flyShootingForwardAnim.draw((int) (getPosX() - getGameWorld().getCamera().getPosX()) + 10, (int) getPosY() - (int) getGameWorld().getCamera().getPosY(), g2);
-                            }else
+                            } else
                                 flyForwardAnim.draw((int) (getPosX() - getGameWorld().getCamera().getPosX()), (int) getPosY() - (int) getGameWorld().getCamera().getPosY(), g2);
-                        }else{
+                        } else {
                             flyBackAnim.Update(System.nanoTime());
-                            if(isShooting){
+                            if (isShooting) {
                                 flyShootingBackAnim.setCurrentFrame(flyBackAnim.getCurrentFrame());
                                 flyShootingBackAnim.draw((int) (getPosX() - getGameWorld().getCamera().getPosX()) - 10, (int) getPosY() - (int) getGameWorld().getCamera().getPosY(), g2);
-                            }else
+                            } else
                                 flyBackAnim.draw((int) (getPosX() - getGameWorld().getCamera().getPosX()), (int) getPosY() - (int) getGameWorld().getCamera().getPosY(), g2);
                         }
 
-                    }else if(isDick()){
+                    } else if (isDick()) {
 
-                        if(getDirection() == RIGHTDIR){
+                        if (getDirection() == RIGHTDIR) {
                             dickForwardAnim.Update(System.nanoTime());
                             dickForwardAnim.draw((int) (getPosX() - getGameWorld().getCamera().getPosX()),
-                                    (int) getPosY() - (int) getGameWorld().getCamera().getPosY() + (getBoundsofmegaman().height/2 - dickForwardAnim.getCurrentImage().getHeight()/2),
+                                    (int) getPosY() - (int) getGameWorld().getCamera().getPosY() + (getBoundsofmegaman().height / 2 - dickForwardAnim.getCurrentImage().getHeight() / 2),
                                     g2);
-                        }else{
+                        } else {
                             dickBackAnim.Update(System.nanoTime());
                             dickBackAnim.draw((int) (getPosX() - getGameWorld().getCamera().getPosX()),
-                                    (int) getPosY() - (int) getGameWorld().getCamera().getPosY() + (getBoundsofmegaman().height/2 - dickBackAnim.getCurrentImage().getHeight()/2),
+                                    (int) getPosY() - (int) getGameWorld().getCamera().getPosY() + (getBoundsofmegaman().height / 2 - dickBackAnim.getCurrentImage().getHeight() / 2),
                                     g2);
                         }
 
-                    }else{
-                        if(getSpeedX() > 0){
+                    } else {
+                        if (getSpeedX() > 0) {
                             runForwardAnim.Update(System.nanoTime());
-                            if(isShooting){
+                            if (isShooting) {
                                 runShootingForwarAnim.setCurrentFrame(runForwardAnim.getCurrentFrame() - 1);
                                 runShootingForwarAnim.draw((int) (getPosX() - getGameWorld().getCamera().getPosX()), (int) getPosY() - (int) getGameWorld().getCamera().getPosY(), g2);
-                            }else
+                            } else
                                 runForwardAnim.draw((int) (getPosX() - getGameWorld().getCamera().getPosX()), (int) getPosY() - (int) getGameWorld().getCamera().getPosY(), g2);
-                            if(runForwardAnim.getCurrentFrame() == 1) runForwardAnim.setIgnoreFrame(0);
-                        }else if(getSpeedX() < 0){
+                            if (runForwardAnim.getCurrentFrame() == 1) runForwardAnim.setIgnoreFrame(0);
+                        } else if (getSpeedX() < 0) {
                             runBackAnim.Update(System.nanoTime());
-                            if(isShooting){
+                            if (isShooting) {
                                 runShootingBackAnim.setCurrentFrame(runBackAnim.getCurrentFrame() - 1);
                                 runShootingBackAnim.draw((int) (getPosX() - getGameWorld().getCamera().getPosX()), (int) getPosY() - (int) getGameWorld().getCamera().getPosY(), g2);
-                            }else
+                            } else
                                 runBackAnim.draw((int) (getPosX() - getGameWorld().getCamera().getPosX()), (int) getPosY() - (int) getGameWorld().getCamera().getPosY(), g2);
-                            if(runBackAnim.getCurrentFrame() == 1) runBackAnim.setIgnoreFrame(0);
-                        }else{
-                            if(getDirection() == RIGHTDIR){
-                                if(isShooting){
+                            if (runBackAnim.getCurrentFrame() == 1) runBackAnim.setIgnoreFrame(0);
+                        } else {
+                            if (getDirection() == RIGHTDIR) {
+                                if (isShooting) {
                                     idleShootingForwardAnim.Update(System.nanoTime());
                                     idleShootingForwardAnim.draw((int) (getPosX() - getGameWorld().getCamera().getPosX()), (int) getPosY() - (int) getGameWorld().getCamera().getPosY(), g2);
-                                }else{
+                                } else {
                                     idleForwardAnim.Update(System.nanoTime());
                                     idleForwardAnim.draw((int) (getPosX() - getGameWorld().getCamera().getPosX()), (int) getPosY() - (int) getGameWorld().getCamera().getPosY(), g2);
                                 }
-                            }else{
-                                if(isShooting){
+                            } else {
+                                if (isShooting) {
                                     idleShootingBackAnim.Update(System.nanoTime());
                                     idleShootingBackAnim.draw((int) (getPosX() - getGameWorld().getCamera().getPosX()), (int) getPosY() - (int) getGameWorld().getCamera().getPosY(), g2);
-                                }else{
+                                } else {
                                     idleBackAnim.Update(System.nanoTime());
                                     idleBackAnim.draw((int) (getPosX() - getGameWorld().getCamera().getPosX()), (int) getPosY() - (int) getGameWorld().getCamera().getPosY(), g2);
                                 }
@@ -231,9 +251,9 @@ public class MegaMan extends Character {
                 break;
 
             case BEHURT:
-                if(getDirection() == RIGHTDIR){
+                if (getDirection() == RIGHTDIR) {
                     behurtForwardAnim.draw((int) (getPosX() - getGameWorld().getCamera().getPosX()), (int) getPosY() - (int) getGameWorld().getCamera().getPosY(), g2);
-                }else{
+                } else {
                     behurtBackAnim.setCurrentFrame(behurtForwardAnim.getCurrentFrame());
                     behurtBackAnim.draw((int) (getPosX() - getGameWorld().getCamera().getPosX()), (int) getPosY() - (int) getGameWorld().getCamera().getPosY(), g2);
                 }
@@ -246,12 +266,11 @@ public class MegaMan extends Character {
         }
 
         drawBoundForCollisionWithMap(g2);
-        drawBoundForCollisionWithEnemy(g2);
+
     }
 
-    @Override
     public void run() {
-        if(getDirection() == LEFTDIR)
+        if (getDirection() == LEFTDIR)
             setSpeedX(-3);
         else setSpeedX(3);
     }
@@ -259,27 +278,28 @@ public class MegaMan extends Character {
     @Override
     public void jump() {
         // neu ko trong tran thai dang nhay  thi moi dc nhay ( ko  cho nhay lien tuc)
-        if(!isJump()){
+        if (!isJump()) {
             setJump(true);
             setSpeedY(-5.0f);
             //dong tac nhay voi roi
             flyBackAnim.reset();
+
             flyForwardAnim.reset();
         }
         // for clim wall gio han cho viec vua nhay vua
-        else{
+        else {
             Rectangle rectRightWall = getBoundsofmegaman();
             rectRightWall.x += 1;
             Rectangle rectLeftWall = getBoundsofmegaman();
             rectLeftWall.x -= 1;
 
-            if(getGameWorld().getPhysicMap().collisionright(rectRightWall)!=null && getSpeedX() > 0){
+            if (getGameWorld().getPhysicMap().collisionright(rectRightWall) != null && getSpeedX() > 0) {
                 setSpeedY(-5.0f);
                 //setSpeedX(-1);
                 flyBackAnim.reset();
                 flyForwardAnim.reset();
                 //setDirection(LEFTDIR);
-            }else if(getGameWorld().getPhysicMap().collisionlefl(rectLeftWall)!=null && getSpeedX() < 0){
+            } else if (getGameWorld().getPhysicMap().collisionlefl(rectLeftWall) != null && getSpeedX() < 0) {
                 setSpeedY(-5.0f);
                 setSpeedX(1);
                 flyBackAnim.reset();
@@ -292,7 +312,7 @@ public class MegaMan extends Character {
 
     @Override
     public void dick() {
-        if(!isJump())
+        if (!isJump())
             setDick(true);
     }
 
@@ -353,27 +373,27 @@ public class MegaMan extends Character {
     @Override
     public void attack() {
 
-        if(!isShooting && !isDick()){
+        if (!isShooting && !isDick()) {
 
             shooting1.play();
 
             Bullet bullet = new BlueFire(getPosX(), getPosY(), getGameWorld());
-            if(getDirection() == LEFTDIR) {
+            if (getDirection() == LEFTDIR) {
                 bullet.setSpeedX(-10);
                 bullet.setPosX(bullet.getPosX() - 40);
-                if(getSpeedX() != 0 && getSpeedY() == 0){
+                if (getSpeedX() != 0 && getSpeedY() == 0) {
                     bullet.setPosX(bullet.getPosX() - 10);
                     bullet.setPosY(bullet.getPosY() - 5);
                 }
-            }else {
+            } else {
                 bullet.setSpeedX(10);
                 bullet.setPosX(bullet.getPosX() + 40);
-                if(getSpeedX() != 0 && getSpeedY() == 0){
+                if (getSpeedX() != 0 && getSpeedY() == 0) {
                     bullet.setPosX(bullet.getPosX() + 10);
                     bullet.setPosY(bullet.getPosY() - 5);
                 }
             }
-            if(isJump())
+            if (isJump())
                 bullet.setPosY(bullet.getPosY() - 20);
 
             bullet.setTeamType(getTeamType());
@@ -385,11 +405,53 @@ public class MegaMan extends Character {
         }
 
     }
-    @Override
-    public void hurtingCallback(){
-        System.out.println("Call back hurting");
-       // hurtingSound.play();
-    }
+    /*     @Override
+        public void hurtingCallback () {
+            System.out.println("Call back hurting");
+            // hurtingSound.play();
+        }
 
+         @Override
+        public void run () {
+            // TODO Auto-generated method stub
+
+        }
+        @Override
+        public void jump () {
+            // TODO Auto-generated method stub
+
+        }
+        @Override
+        public void dick () {
+            // TODO Auto-generated method stub
+
+        }
+        @Override
+        public void standUp () {
+            // TODO Auto-generated method stub
+
+        }
+        @Override
+        public void standRun () {
+            // TODO Auto-generated method stub
+
+        }
+        @Override
+        public void stopRun () {
+            // TODO Auto-generated method stub
+
+        }
+
+        @Override
+        public void draw (Graphics2D g){
+            // TODO Auto-generated method stub
+
+        }
+        @Override
+        public Rectangle getBoundForCollisionWithEnemy () {
+            // TODO Auto-generated method stub
+            return null;
+        }*/
 }
+
 

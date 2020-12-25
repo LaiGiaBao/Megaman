@@ -12,23 +12,20 @@ public class moster1 extends  ObjectO {
     private long startTimetoShoot;
     private float x1,x2;
     public moster1(float x, float y, GameWorld gameWorld) {
-        super(x,y,127,89,0,100,10,gameWorld);
+        super(x,y,127,89,0,100,gameWorld);
         backAnim = CacheDataLoader.getInstance().getAnimation("darkraise");
         forwarAnim = CacheDataLoader.getInstance().getAnimation("darkraise");
         forwarAnim.flipAllImage();
         startTimetoShoot = 0;
         setStartTimeNoBeHurt(3000);
-
         x1  =x-100;
         x2 = x+100;
         setSpeedX(1);
         setSpeedY(10);
     }
-
-
     @Override
     public void attack() {
-        float megamanX = getGameWorld().getMegaMan().getPosX();
+      /*  float megamanX = getGameWorld().getMegaMan().getPosX();
         float megamanY = getGameWorld().getMegaMan().getPosY();
         float deltaX = megamanX - getPosX();
         float deltaY = megamanY - getPosY();
@@ -39,14 +36,19 @@ public class moster1 extends  ObjectO {
         float speedX = (float) Math.sqrt(speed * speed * a * a / (a * a + 1));
         float speedY = (float) Math.sqrt(speed * speed / (a * a + 1));
         // them cai dan m vo
-        /*Bullet bullet = new DarkRaiseBullet(getPosX(), getPosY(), getGameWorld());
+        Bullet bullet = new RedBotBullet(getPosX(), getPosY(), getGameWorld());
 
         if(deltaX < 0)
             bullet.setSpeedX(-speedX);
         else bullet.setSpeedX(speedX);
         bullet.setSpeedY(speedY);
         bullet.setTeamType(getTeamType());
-        getGameWorld().bulletManager.addObject(bullet);*/
+        getGameWorld().getObjectManager().addobject(bullet);*/
+        Bullet bullet = new RedBotBullet(getPosX(), getPosY(), getGameWorld());
+        if(getDirection() == LEFTDIR) bullet.setSpeedX(-8);
+        else bullet.setSpeedX(8);
+        bullet.setTeamType(getTeamType());
+        getGameWorld().getObjectManager().addobject(bullet);
     }
 
 

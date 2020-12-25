@@ -1,19 +1,34 @@
+
 package com.myTeam.user_interface;
 
-import com.myTeam.game_object.GameObject;
+ import com.myTeam.game_object.GameObject;
 import com.myTeam.game_object.ObjectO;
 import com.myTeam.status.*;
 
-import java.awt.event.KeyEvent;
+ import com.myTeam.status.GameWorld;
+import com.myTeam.status.MainStatus;
+ import java.awt.event.KeyEvent;
+
 
 public class InputManager {
-    private GamePanel gamePanel;
+   /*  private GamePanel gamePanel;
     public GameWorld gameWorld;
+    public MainStatus mainStatus;
     public InputManager(GameWorld gameWorld) {
         this.gameWorld=gameWorld;
+
+    /*public MainStatus mainStatus;
+    
+    public InputManager(MainStatus ){
+        this.mainStatus = status;
     }
-    public void processedKeyPress(int keyCode){
-        switch (keyCode){
+    
+    public void setState(MainStatus status) {
+    	mainStatus=status;
+     }*/
+    
+   /* public void processedKeyPress(int keyCode){
+         switch (keyCode){
             case KeyEvent.VK_UP:
                 System.out.println("Pressed UP");
                 break;
@@ -22,11 +37,11 @@ public class InputManager {
                 break;
             case KeyEvent.VK_LEFT:
                gameWorld.getMegaMan().setDirection(gameWorld.getMegaMan().LEFTDIR);
-               gameWorld.getMegaMan().run();
+              // gameWorld.getMegaMan().run();
                break;
             case KeyEvent.VK_RIGHT:
                 gameWorld.getMegaMan().setDirection(gameWorld.getMegaMan().RIGHTDIR);
-                gameWorld.getMegaMan().run();
+               // gameWorld.getMegaMan().run();
                 break;
             case KeyEvent.VK_ENTER:
                 System.out.println("Pressed ENTER");
@@ -35,9 +50,11 @@ public class InputManager {
                 System.out.println("Pressed SPACE");
                 break;
         }
-    }
+     	mainStatus.processedKeyPress(keyCode);
+     }
+    
     public void processedKeyRelease(int keyCode){
-        switch (keyCode){
+         switch (keyCode){
             case KeyEvent.VK_UP:
                 System.out.println("Released UP");
                 break;
@@ -61,5 +78,29 @@ public class InputManager {
                    gameWorld.getMegaMan().setSpeedY(-3);
                 break;
         }
+     	mainStatus.processedKeyRelease(keyCode);
+     }
+    */
+   private MainStatus gameState;
+
+    public InputManager(MainStatus state){
+        this.gameState = state;
+    }
+
+    public void setState(MainStatus state) {
+        gameState = state;
+    }
+
+    public void setPressedButton(int code){
+        gameState.processedKeyRelease(code);
+    }
+
+    public void setReleasedButton(int code){
+        gameState.processedKeyRelease(code);
+    }
+
+
+    public void setState() {
+        setState();
     }
 }

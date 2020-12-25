@@ -149,8 +149,21 @@ public class PhysicMap extends GameObject {
                             (int) getPosY() + i * sizeofsquares - (int) camera.getPosY(), sizeofsquares, sizeofsquares);
         }
 
+
+    }
+
+    /*public void draw(Graphics2D g2){
+        //chi? ve map trong vung ma camera tro den
+        Camera camera = getGameWorld().camera;
+        //  moi vat can dc minh hoa bang hinh vuong co canh la' sizeofsquares
+        g2.setColor(Color.GRAY);
+        for(int i = 0;i< physmap.length;i++)
+            for(int j = 0;j<physmap[0].length;j++)
+                if(physmap[i][j]!=0) g2.fillRect((int) getPosX() + j*sizeofsquares - (int) camera.getPosX(),
+                        (int) getPosY() + i*sizeofsquares - (int) camera.getPosY(), sizeofsquares, sizeofsquares);
+
     /*@Override
     public GameWorld getGameWorld() {
         return new GameWorld();
     }*/
-}
+

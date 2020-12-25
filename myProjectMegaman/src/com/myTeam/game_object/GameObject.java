@@ -10,12 +10,13 @@ import java.awt.image.BufferedImage;
 public abstract class GameObject {
     private float posX;
     private float posY;
-	private GameWorld world;
-	
-	public GameObject(float x, float y, GameWorld world){
-		posX=x;
-		posY=y;
-		this.world=world;
+	private GameWorld gameWorld;
+
+	public GameObject(float posX, float posY, GameWorld gameWorld){
+		this.posX=posX;
+		this.posY=posY;
+		this.gameWorld=gameWorld;
+
 	}
 	
 	public void setPosX(float posX){
@@ -35,11 +36,12 @@ public abstract class GameObject {
 	}
 
 	public GameWorld getGameWorld(){
-		return world;
+		return gameWorld;
 	}
 
 
 
 	public abstract void Update();
+	
 	
 }

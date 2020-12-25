@@ -34,12 +34,13 @@ public class Frame extends JFrame {
     }
     public void startGame(){
 
-        gamePanel.start();
+        gamePanel.stargame();
+        gamePanel.setVisible(true);
     }
     public static void main(String[] args) throws IOException {
         Frame gameFrame = new Frame();
         gameFrame.setVisible(true);
         gameFrame.startGame();
-        //int n=Integer.parseInt(line.replaceAll("\\D+", ""));
+
     }
 }

@@ -3,6 +3,7 @@ package com.myTeam.game_object;
 import com.myTeam.status.*;
 import com.myTeam.effect.Animation;
 import java.awt.*;
+import java.io.Serializable;
 
 public abstract class ObjectO extends GameObject {
     //cung team (ko bi mat mau khi megaman tan cong
@@ -41,7 +42,11 @@ public abstract class ObjectO extends GameObject {
     // thoi gian bat tu sau khi hoi sinh
     private long startTimeNoBeHurt;
     private long timeForNoBeHurt;
-    public ObjectO(float x,float y,float width,float height,float mass,int damage,int blood,GameWorld gameWorld) {
+
+    //public ObjectO(float x,float y,float width,float height,float mass,int damage,int blood,GameWorld gameWorld) {
+
+    public ObjectO(float x, float y, float width, float height, float mass, int blood, GameWorld gameWorld) {
+
         super(x,y,gameWorld);
         setWidth(width);
         setHeight(height);
@@ -187,6 +192,7 @@ public abstract class ObjectO extends GameObject {
         this.speedY = speedY;
     }
 
+    public void attack() {}
     // ve 1 rectangle xung quanh doi tuong giong megaman
     public Rectangle getBoundsofmegaman() {
         Rectangle rectangle = new Rectangle();
@@ -196,13 +202,14 @@ public abstract class ObjectO extends GameObject {
         rectangle.height=(int) getHeight();
         return  rectangle;
     }
-    public void beAttached(int damage) {
+    public void beAttacked(int damage) {
         setBlood(getBlood()-damage);
         state = BEHURT;
         AnimationofbeAttached();
     }
     //hieu ung khi nhan damge tuy vao Object
     public void AnimationofbeAttached() {}
+    @Override
     public void Update() {
         switch (state) {
             case ALIVE:
@@ -238,12 +245,13 @@ public abstract class ObjectO extends GameObject {
                 break;
         }
     }
+
     // check xem object co out camera ko
     public boolean isoutofcameraView() {
-        if (getPosX()-getGameWorld().getCamera().getPosX() > getGameWorld().getCamera().getWidthView()
-                || getPosX() - getGameWorld().getCamera().getPosX() <-50
-                || getPosY() - getGameWorld().getCamera().getPosX() > getGameWorld().getCamera().getHeightView()
-                || getPosY() - getGameWorld().getCamera().getPosY() < -50 ) {
+        if(getPosX() - getGameWorld().camera.getPosX() > getGameWorld().camera.getWidthView() ||
+                getPosX() - getGameWorld().camera.getPosX() < -50
+                ||getPosY() - getGameWorld().camera.getPosY() > getGameWorld().camera.getHeightView()
+                ||getPosY() - getGameWorld().camera.getPosY() < -50) {
             return true;
         }
         else {
@@ -253,32 +261,48 @@ public abstract class ObjectO extends GameObject {
     public void beHurt(int damge){
         setBlood(getBlood() - damge);
         state = BEHURT;
-        hurtingCallback();
+        //hurtingCallback();
     }
-    public void drawBoundForCollisionWithMap(Graphics2D g2){
+    public void drawBoundForCollisionWithMap(Graphics2D g2) {
         Rectangle rect = getBoundsofmegaman();
         g2.setColor(Color.BLUE);
-        g2.drawRect(rect.x - (int) getGameWorld().getCamera().getPosX(), rect.y - (int) getGameWorld().getCamera().getPosY(), rect.width, rect.height);
+        g2.drawRect(rect.x - (int) getGameWorld().camera.getPosY(), rect.y - (int) getGameWorld().getCamera().getPosY(), rect.width, rect.height);
     }
-
-    public void drawBoundForCollisionWithEnemy(Graphics2D g2){
-        Rectangle rect = getBoundForCollisionWithEnemy();
+    
+    public Rectangle getBoundForCollisionWithMap(){
+        Rectangle bound = new Rectangle();
+        bound.x = (int) (getPosX() - (getWidth()/2));
+        bound.y = (int) (getPosY() - (getHeight()/2));
+        bound.width = (int) getWidth();
+        bound.height = (int) getHeight();
+        return bound;
+    }
+    /*    public void drawBoundForCollisionWithEnemy(Graphics2D g2){
+         Rectangle rect = getBoundForCollisionWithMap();
         g2.setColor(Color.RED);
-        g2.drawRect(rect.x - (int) getGameWorld().getCamera().getPosX(), rect.y - (int) getGameWorld().getCamera().getPosY(), rect.width, rect.height);
+        g2.drawRect(rect.x - (int)   getGameWorld().camera.getPosY(), rect.y - (int) getGameWorld().getCamera().getPosY(), rect.width, rect.height);
+
+
+
+
+
+
+
+        g2.drawRect(rect.x - (int)    getGameWorld().camera.getPosX(), rect.y - (int)    getGameWorld().camera.getPosY(), rect.width, rect.height);
     }
 
+    private Rectangle getBoundForCollisionWithMap() {
+        Rectangle bound = new Rectangle();
+        bound.x = (int) (getPosX() - (getWidth()/2));
+        bound.y = (int) (getPosY() - (getHeight()/2));
+        bound.width = (int) getWidth();
+        bound.height = (int) getHeight();
+        return bound;
+    }*/
     public abstract Rectangle getBoundForCollisionWithEnemy();
-    public boolean isObjectoutofcameraview() {
-        if ( getPosX() - getGameWorld().getCamera().getPosX() < -50||getPosX() - getGameWorld().getCamera().getPosX() > getGameWorld().getCamera().getWidthView() || getPosY() - getGameWorld().getCamera().getPosY() > -50||getPosY() - getGameWorld().getCamera().getPosY() > getGameWorld().getCamera().getHeightView()  ) {
-            return  true;
-        }
-        else {
-            return false;
-        }
-    }
 
     public abstract void draw(Graphics2D g2);
-
-    public void hurtingCallback(){};
-    public abstract void attack() ;
+    
+    //public void hurtingCallback();
+	
 }

@@ -4,6 +4,8 @@ import com.myTeam.control.Button;
 import com.myTeam.control.RectButton;
 import com.myTeam.user_interface.Frame;
 import com.myTeam.user_interface.GamePanel;
+import com.myTeam.status.GameWorld;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
@@ -34,7 +36,7 @@ public class Menu extends MainStatus {
     }
     
     @Override
-    public void Reset() {
+    public void Update() {
         for(int i = 0;i<numButton;i++) {
             if(i == buttonSelected) {
                 button[i].setState(Button.HOVER);
@@ -69,7 +71,7 @@ public class Menu extends MainStatus {
     private void actionMenu() {
         switch(buttonSelected) {
             case 0:
-                //panel.setState(new GameWorld(panel));
+                panel.setMainStatus(new GameWorld(panel));
                 break;
 
             case 1:
@@ -83,8 +85,8 @@ public class Menu extends MainStatus {
     }
 
     @Override
-    public void setPressedButton(int key) {
-        switch(key) {
+    public void processedKeyPress(int keyCode) {
+        switch(keyCode) {
             case KeyEvent.VK_DOWN:
                 buttonSelected++;
                 if(buttonSelected >= numButton) {
@@ -105,9 +107,12 @@ public class Menu extends MainStatus {
         }
     }
 
-    @Override
-    public void setReleasedButton(int key) {
-        
-    }
+	@Override
+	public void processedKeyRelease(int keyCode) {
+	    
+	}
+		
+   
+	}
 
-}
+

@@ -7,6 +7,7 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.util.Hashtable; //trong animation can nen t import vo luon
 
+
 //public class monster1
 public class Boss extends Character {
     private Animation idleforward, idleback;
@@ -194,3 +195,4 @@ public class Boss extends Character {
         // drawBoundForCollisionWithEnemy(g2);
     }
 }
+

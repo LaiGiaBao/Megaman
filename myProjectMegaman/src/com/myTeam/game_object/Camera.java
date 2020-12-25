@@ -3,18 +3,21 @@ package com.myTeam.game_object;
 import com.myTeam.status.*;
 
 public class Camera extends GameObject{
+
     private float widthView;
     private float heightView;
 
     private boolean isLocked = false;
 
-    public Camera(float x, float y, float widthView, float heightView,GameWorld gameWorld) {
+    public Camera(float x,float y,float widthView,float heightView,GameWorld gameWorld) {
         super(x, y, gameWorld);
         this.widthView = widthView;
         this.heightView = heightView;
     }
 
-    public void lock(){
+
+
+	public void lock(){
         isLocked = true;
     }
 
@@ -57,4 +60,26 @@ public class Camera extends GameObject{
         this.heightView = heightView;
     }
 
-}
+	private float widthCam; // camera nhan vat theo chieu ngang screen
+	private float heightCam; // camera nhan vat theo chieu doc man hinh 
+	private boolean checkLock= false; // check de co the de camera di chuyen hoac khoa lai khi dau voi boss 
+	
+
+
+	    public float getWidthCam() {
+	        return widthCam;
+	    }
+
+	    public void setWidthCam(float widthCam) {
+	        this.widthCam = widthCam;
+	    }
+
+	    public float getHeightCam() {
+	        return heightCam;
+	    }
+
+	    public void setHeightCam(float heightCam) {
+	        this.heightCam = heightCam;
+	    }
+	    
+	}

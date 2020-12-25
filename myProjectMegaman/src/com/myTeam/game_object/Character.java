@@ -12,7 +12,7 @@ public abstract class Character extends ObjectO {
     //hanh dong luc tiep dat ( lam' them cho nhin dep) chay 1 Animation
     private  boolean land;
     public Character(float x, float y, float width, float height, float mass,int damge, int blood, GameWorld gameWorld) {
-        super(x,y,width,height,mass,damge,blood,gameWorld);
+        super(x, y, width, height, mass, blood, gameWorld);
         setState(ALIVE);
     }
    // public abstract void hurtingCallback();

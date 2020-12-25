@@ -11,10 +11,10 @@ public abstract class MainStatus {
 		this.panel=panel;
 	}
 	
-	public abstract void Reset();
+	public abstract void Update();
     public abstract void Render();
     public abstract BufferedImage getBufferedImage();
     
-    public abstract void setPressedButton(int key);
-    public abstract void setReleasedButton(int key);
+    public abstract void processedKeyPress(int keyCode);
+    public abstract void processedKeyRelease(int keyCode);
 }

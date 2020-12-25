@@ -47,7 +47,7 @@ public class BlueFire extends Bullet {
         if (forwarBulletAnim.isIgnoreFrame(0) || backBulletAnim.isIgnoreFrame(0)) {
             setPosX(getPosX() + getSpeedX());
         }
-        ObjectO objectO = getGameWorld().getObjectManager().collisionwithenemy(this);
+        ObjectO objectO = getGameWorld().getObjectManager().getCollisionWithEnemy(this);
         if (objectO!=null && objectO.getState() == ALIVE) {
             setBlood(0);
             objectO.setBlood(objectO.getBlood()- getDamage());
