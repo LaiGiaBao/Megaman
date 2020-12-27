@@ -33,7 +33,7 @@ public class Camera extends GameObject{
 
         if(!isLocked){
 
-            MegaMan mainCharacter = getGameWorld().megaman();
+            MegaMan mainCharacter = getGameWorld().megaman;
 
             if(mainCharacter.getPosX() - getPosX() > 400) setPosX(mainCharacter.getPosX() - 400);
             if(mainCharacter.getPosX() - getPosX() < 200) setPosX(mainCharacter.getPosX() - 200);
