@@ -142,7 +142,7 @@ public class CacheDataLoader {
 
         br.close();
     }
-<<<<<<< Updated upstream
+
 
         public void LoadBackgroundMap () throws IOException {
             FileReader fr = new FileReader(backgroundsmapfile);
@@ -213,53 +213,4 @@ public class CacheDataLoader {
     public int[][] getBackgroundMap(){
         return instance.backgroundmap;
     }
-
-=======
-    public void LoadData() throws IOException{
-        LoadFrame();
-        LoadAnimation();
-        LoadPhysMap();
-    }
-    // load physmap 
-    public void LoadPhysMap() throws IOException {
-        FileReader fr = new FileReader(physmapfile);
-        BufferedReader br = new BufferedReader(fr);
-
-        String line = null;
-
-        line = br.readLine();
-        int numberOfRows = Integer.parseInt(line);
-        line = br.readLine();
-        int numberOfColumns = Integer.parseInt(line);
-
-
-        instance.physmap = new int[numberOfRows][numberOfColumns];
-
-        for(int i = 0;i < numberOfRows;i++){
-            line = br.readLine();
-            String [] str = line.split(" ");
-            for(int j = 0;j<numberOfColumns;j++)
-                instance.physmap[i][j] = Integer.parseInt(str[j]);
-        }
-
-        for(int i = 0;i < numberOfRows;i++){
-
-            for(int j = 0;j<numberOfColumns;j++)
-                System.out.print(" "+instance.physmap[i][j]);
-
-            System.out.println();
-        }
-
-        br.close();
-
-    }
-    // physicalmap la 1 mang gom 0 va 1
-    public int[][] getPhysmap() {
-        return physmap;
-    }
-
-    public int[][] getBackgroundmap() {
-        return backgroundmap;
-    }
->>>>>>> Stashed changes
 }

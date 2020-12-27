@@ -14,7 +14,7 @@ public class BulletManager extends ObjectManager {
         for (int i = 0; i < listOfObject.size(); i++) {
             ObjectO object = listOfObject.get(i);
             // khi dan va cham or bay khoi camera thi xoa ( va cham tuy vao loai dan)
-            if (object.getState() == ObjectO.DEATH || !object.isoutofcameraView()) {
+            if (object.getState() == ObjectO.DEATH || !object.isObjectOutOfCameraView()) {
                 listOfObject.remove(i);
                 System.out.print("remove ");
             }
@@ -23,18 +23,5 @@ public class BulletManager extends ObjectManager {
     }
 }
 
-  /*  @Override
-    public void UpdateObjects() {
-        super.UpdateObject();
-        synchronized(listOfObject){
-            for(int i = 0; i < listOfObject.size(); i++){
-                
-                ObjectO objectO = listOfObject.get(i);
-                
-                if(objectO.isoutofcameraView() || objectO.getState() == ObjectO.DEATH){
-                	listOfObject.remove(i);
-                }
-            }
-        }
-    }*/
+ 
 

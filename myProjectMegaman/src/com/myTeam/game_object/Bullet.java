@@ -1,18 +1,9 @@
 package com.myTeam.game_object;
 
-import com.myTeam.status.*;
+import com.myTeam.status.GameWorld;
 import java.awt.Graphics2D;
-// Bullet is subclass of Object
 
 public abstract class Bullet extends ObjectO {
-     public Bullet(float x, float y, float width, float height, float mass, int blood, int damage, GameWorld gameWorld) {
-        super(x,y,width,height,mass,1,gameWorld);
-        setDamage(damage);
-    }
-
-
-
-
 
     public Bullet(float x, float y, float width, float height, float mass, int damage, GameWorld gameWorld) {
             super(x, y, width, height, mass, 1, gameWorld);
@@ -25,13 +16,12 @@ public abstract class Bullet extends ObjectO {
         super.Update();
         setPosX(getPosX() + getSpeedX());
         setPosY(getPosY() + getSpeedY());
-        ObjectO objectO = getGameWorld().getObjectManager().getCollisionWithEnemy(this);
-        if(objectO !=null && objectO.getState() == ALIVE){
+        ObjectO object = getGameWorld().objectManager.getCollisionWithEnemy(this);
+        if(object!=null && object.getState() == ALIVE){
             setBlood(0);
-            objectO.beAttacked(getDamage());
-            System.out.println("Set getting damage for enemy");
+            object.beHurt(getDamage());
+            System.out.println("Setting hurt for enemy");
         }
     }
     
- }
-
+}

@@ -13,8 +13,8 @@ import java.io.IOException;
 import java.util.Hashtable;
 
 public class Frame extends JFrame {
-    public static final int SCREEN_WIDTH = 1600;
-    public static final int SCREEN_HEIGHT = 900;
+    public static final int SCREEN_WIDTH = 1000;
+    public static final int SCREEN_HEIGHT = 600;
     GamePanel gamePanel;
    // GameWorld gameWorld;
     public Frame()  {
@@ -34,8 +34,7 @@ public class Frame extends JFrame {
     }
     public void startGame(){
 
-        gamePanel.stargame();
-        gamePanel.setVisible(true);
+        gamePanel.start();
     }
     public static void main(String[] args) throws IOException {
         Frame gameFrame = new Frame();

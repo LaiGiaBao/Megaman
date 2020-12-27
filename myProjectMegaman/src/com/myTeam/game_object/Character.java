@@ -1,85 +1,104 @@
 package com.myTeam.game_object;
 
-import com.myTeam.status.*;
+import com.myTeam.status.GameWorld;
+import com.myTeam.game_object.ObjectO;
 import java.awt.Rectangle;
 
 public abstract class Character extends ObjectO {
-    // trang thai dang nhay
-    private  boolean isJump;
-    // dang quy
-    private boolean isDick;
 
-    //hanh dong luc tiep dat ( lam' them cho nhin dep) chay 1 Animation
-    private  boolean land;
-    public Character(float x, float y, float width, float height, float mass,int damge, int blood, GameWorld gameWorld) {
+    private boolean isJumping;
+    private boolean isDicking;
+
+    private boolean isLanding;
+
+    public Character(float x, float y, float width, float height, float mass, int blood, GameWorld gameWorld) {
         super(x, y, width, height, mass, blood, gameWorld);
         setState(ALIVE);
     }
-   // public abstract void hurtingCallback();
-    public abstract Rectangle getBoundForCollisionWithEnemy();
+
     public abstract void run();
+
     public abstract void jump();
+
     public abstract void dick();
+
     public abstract void standUp();
-    public abstract void standRun();
+
     public abstract void stopRun();
-    public abstract void attack();
 
-    public boolean isLand() {
-        return land;
+    public boolean getIsJumping() {
+        return isJumping;
     }
 
-    public boolean isJump() {
-        return isJump;
+    public void setIsLanding(boolean b){
+        isLanding = b;
     }
 
-    public boolean isDick() {
-        return isDick;
+    public boolean getIsLanding(){
+        return isLanding;
     }
 
-    public void setLand(boolean land) {
-        this.land = land;
+    public void setIsJumping(boolean isJumping) {
+        this.isJumping = isJumping;
     }
 
-    public void setJump(boolean jump) {
-        isJump = jump;
+    public boolean getIsDicking() {
+        return isDicking;
     }
 
-    public void setDick(boolean dick) {
-        isDick = dick;
+    public void setIsDicking(boolean isDicking) {
+        this.isDicking = isDicking;
     }
-    public void Update() {
+
+    @Override
+    public void Update(){
+
         super.Update();
-        if (getState() == ALIVE || getState()==NOBEHURT) {
-            if (!land) {
-                setPosX(getPosX()+getSpeedX());
-                // check xem no co' dung vao' tuong ben trai ko
-                if (getDirection() == LEFTDIR && getGameWorld().getPhysicMap().collisionlefl(getBoundsofmegaman())!=null) {
-                    Rectangle lefwall = getGameWorld().getPhysicMap().collisionlefl(getBoundsofmegaman());
-                    setPosX(lefwall.x-getWidth()/2);
-                }
-                if  (getDirection() == RIGHTDIR && getGameWorld().getPhysicMap().collisionright(getBoundsofmegaman())!=null) {
-                    Rectangle rightwall = getGameWorld().getPhysicMap().collisionright(getBoundsofmegaman());
-                    setPosX(rightwall.x-getWidth()/2);
-                }
-                Rectangle boundForCollisionWithMapFuture = getBoundsofmegaman();
-                boundForCollisionWithMapFuture.y += (getSpeedY()!=0?getSpeedY(): 2);
-                Rectangle rectLand = getGameWorld().getPhysicMap().collisionland(boundForCollisionWithMapFuture);
 
-                Rectangle rectTop = getGameWorld().getPhysicMap().collistiontop(boundForCollisionWithMapFuture);
+        if(getState() == ALIVE || getState() == NOBEHURT){
+
+            if(!isLanding){
+
+                setPosX(getPosX() + getSpeedX());
+
+
+                if(getDirection() == LEFTDIR &&
+                        getGameWorld().physicalMap.collisionWithLeft(getBoundForCollisionWithMap())!=null){
+
+                    Rectangle rectLeftWall = getGameWorld().physicalMap.collisionWithLeft(getBoundForCollisionWithMap());
+                    setPosX(rectLeftWall.x + rectLeftWall.width + getWidth()/2);
+
+                }
+                if(getDirection() == RIGHTDIR &&
+                        getGameWorld().physicalMap.collisionWithRight(getBoundForCollisionWithMap())!=null){
+
+                    Rectangle rectRightWall = getGameWorld().physicalMap.collisionWithRight(getBoundForCollisionWithMap());
+                    setPosX(rectRightWall.x - getWidth()/2);
+
+                }
+
+
+
+              
+
+                Rectangle boundForCollisionWithMapFuture = getBoundForCollisionWithMap();
+                boundForCollisionWithMapFuture.y += (getSpeedY()!=0?getSpeedY(): 2);
+                Rectangle rectLand = getGameWorld().physicalMap.collisionWithLand(boundForCollisionWithMapFuture);
+
+                Rectangle rectTop = getGameWorld().physicalMap.collisionWithTop(boundForCollisionWithMapFuture);
 
                 if(rectTop !=null){
 
                     setSpeedY(0);
-                    setPosY(rectTop.y + getGameWorld().getPhysicMap().getSizeofsquares() + getHeight()/2);
+                    setPosY(rectTop.y + getGameWorld().physicalMap.getTileSize() + getHeight()/2);
 
                 }else if(rectLand != null){
-                    setJump(false);
-                    if(getSpeedY() > 0) setLand(true);
+                    setIsJumping(false);
+                    if(getSpeedY() > 0) setIsLanding(true);
                     setSpeedY(0);
                     setPosY(rectLand.y - getHeight()/2 - 1);
                 }else{
-                    setJump(true);
+                    setIsJumping(true);
                     setSpeedY(getSpeedY() + getMass());
                     setPosY(getPosY() + getSpeedY());
                 }

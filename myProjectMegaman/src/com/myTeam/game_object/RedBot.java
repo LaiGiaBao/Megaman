@@ -21,7 +21,7 @@ public class RedBot extends ObjectO {
         forwardAnim.flipAllImage();
         startTimeToShoot = 0;
         setDamage(10);
-        setTimeForNoBeHurt(300000000);
+        setTimeForNoBehurt(300000000);
     }
 
     @Override
@@ -31,7 +31,7 @@ public class RedBot extends ObjectO {
         if(getDirection() == LEFTDIR) bullet.setSpeedX(-8);
         else bullet.setSpeedX(8);
         bullet.setTeamType(getTeamType());
-        getGameWorld().getObjectManager().addobject(bullet);
+        getGameWorld().bulletManager.addObject(bullet);
     
     }
 
@@ -56,7 +56,7 @@ public class RedBot extends ObjectO {
 
     @Override
     public void draw(Graphics2D g2) {
-        if(!isoutofcameraView()){
+        if(!isObjectOutOfCameraView()){
             if(getState() == NOBEHURT && (System.nanoTime()/10000000)%2!=1){
        
             }else{
