@@ -96,7 +96,7 @@ public class CacheDataLoader {
             }
 
         }
-
+        System.out.println("frame Readed");
         br.close();
 
     }
@@ -162,10 +162,10 @@ public class CacheDataLoader {
                     instance.backgroundmap[i][j] = Integer.parseInt(str[j]);
             }
 
-            for (int i = 0; i < numberOfRows; i++) {
+            /*for (int i = 0; i < numberOfRows; i++) {
                 for (int j = 0; j < numberOfCollumns; j++) System.out.print(" " + instance.backgroundmap[i][j]);
                 System.out.println();
-            }
+            }*/
             br.close();
         }
         public void LoadData () throws IOException {
@@ -196,13 +196,13 @@ public class CacheDataLoader {
                     instance.physmap[i][j] = Integer.parseInt(str[j]);
             }
 
-            for (int i = 0; i < numberOfRows; i++) {
+            /*for (int i = 0; i < numberOfRows; i++) {
 
                 for (int j = 0; j < numberOfColumns; j++)
                     System.out.print(" " + instance.physmap[i][j]);
 
                 System.out.println();
-            }
+            }*/
 
             br.close();
 

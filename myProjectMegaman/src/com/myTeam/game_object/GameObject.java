@@ -1,12 +1,5 @@
 package com.myTeam.game_object;
 
-import java.awt.*;
-import com.myTeam.status.*;
-import java.applet.AudioClip;
-import java.awt.Color;
-import java.awt.Graphics2D;
-import java.awt.event.KeyEvent;
-import java.awt.image.BufferedImage;
 public abstract class GameObject {
     private float posX;
     private float posY;

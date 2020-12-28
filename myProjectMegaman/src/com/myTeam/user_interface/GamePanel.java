@@ -8,7 +8,7 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.JPanel;
 
-import com.myTeam.status.GameWorld;
+import com.myTeam.game_object.GameWorld;
 
 public class GamePanel extends JPanel implements Runnable, KeyListener {
 	private Thread thread;

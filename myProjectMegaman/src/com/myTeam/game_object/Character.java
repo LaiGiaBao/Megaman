@@ -1,7 +1,5 @@
 package com.myTeam.game_object;
 
-import com.myTeam.status.GameWorld;
-import com.myTeam.game_object.ObjectO;
 import java.awt.Rectangle;
 
 public abstract class Character extends ObjectO {

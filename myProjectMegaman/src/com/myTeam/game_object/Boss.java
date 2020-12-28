@@ -2,7 +2,6 @@ package com.myTeam.game_object;
 
 import com.myTeam.effect.Animation;
 import com.myTeam.effect.CacheDataLoader;
-import com.myTeam.status.GameWorld;
 
 import java.awt.*;
 import java.util.Hashtable;

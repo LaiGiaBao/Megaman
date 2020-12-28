@@ -1,7 +1,5 @@
 package com.myTeam.game_object;
 
-import com.myTeam.status.GameWorld;
-
 
 import java.awt.*;
 import java.util.Collections;

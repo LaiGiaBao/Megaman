@@ -1,16 +1,10 @@
 package com.myTeam.user_interface;
 
 import com.myTeam.effect.CacheDataLoader;
-import com.myTeam.effect.FrameImage;
-import com.myTeam.status.GameWorld;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
-import java.util.Hashtable;
 
 public class Frame extends JFrame {
     public static final int SCREEN_WIDTH = 1000;

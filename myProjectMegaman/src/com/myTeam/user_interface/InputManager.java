@@ -1,6 +1,6 @@
 package com.myTeam.user_interface;
 
-import com.myTeam.status.GameWorld;
+import com.myTeam.game_object.GameWorld;
 import com.myTeam.game_object.MegaMan;
 
 import java.awt.event.KeyEvent;

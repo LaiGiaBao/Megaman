@@ -2,8 +2,6 @@ package com.myTeam.game_object;
 
 import com.myTeam.effect.Animation;
 import com.myTeam.effect.CacheDataLoader;
-import com.myTeam.status.GameWorld;
-import com.myTeam.user_interface.Frame;
 
 import java.applet.AudioClip;
 import java.awt.*;

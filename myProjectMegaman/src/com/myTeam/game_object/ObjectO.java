@@ -1,7 +1,7 @@
 package com.myTeam.game_object;
 
 import com.myTeam.effect.Animation;
-import com.myTeam.status.*;
+
 import java.awt.*;
 
 public abstract class ObjectO extends GameObject{

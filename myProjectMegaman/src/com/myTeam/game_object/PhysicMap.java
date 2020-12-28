@@ -1,9 +1,6 @@
 package com.myTeam.game_object;
 
 import com.myTeam.effect.CacheDataLoader;
-import com.myTeam.status.GameWorld;
-
-import org.w3c.dom.css.Rect;
 
 import java.awt.*;
 

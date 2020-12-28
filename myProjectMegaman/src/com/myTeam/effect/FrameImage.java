@@ -4,6 +4,7 @@ package com.myTeam.effect;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 // Store animations
 public class FrameImage{
@@ -21,8 +22,8 @@ public class FrameImage{
         this.image = image;
     }
     //Copy constructor
-    public FrameImage(FrameImage frameImage){
-        image = new BufferedImage(frameImage.getWidthImage(), 
+    public FrameImage(FrameImage frameImage) {
+        image = new BufferedImage(frameImage.getWidthImage(),
                 frameImage.getHeightImage(), frameImage.image.getType());
         Graphics g = image.getGraphics();
         g.drawImage(frameImage.image, 0, 0, null);

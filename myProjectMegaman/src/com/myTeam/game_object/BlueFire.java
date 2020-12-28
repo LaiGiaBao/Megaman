@@ -1,15 +1,13 @@
 package com.myTeam.game_object;
 import com.myTeam.effect.Animation;
 import com.myTeam.effect.CacheDataLoader;
-import com.myTeam.game_object.Bullet;
-import com.myTeam.status.GameWorld;
 
 import java.awt.*;
 
 public class BlueFire extends Bullet {
     private Animation forwarBulletAnim, backBulletAnim;
     public BlueFire (float x, float y, GameWorld gameWorld) {
-        super(x,y,60,30,1.0f,1,10,gameWorld);
+        super(x,y,60,30,1.0f,1,gameWorld);
         forwarBulletAnim = CacheDataLoader.getInstance().getAnimation("bluefire");
         backBulletAnim = CacheDataLoader.getInstance().getAnimation("bluefire");
         backBulletAnim.flipAllImage();
@@ -30,7 +28,7 @@ public class BlueFire extends Bullet {
 
             }
             forwarBulletAnim.Update(System.nanoTime());
-            forwarBulletAnim.draw((int) (getPosX()-getGameWorld().getCamera().getPosX()),(int) (getPosY()-getGameWorld().getCamera().getPosY()),g);
+            forwarBulletAnim.draw((int) (getPosX()-getGameWorld().camera.getPosX()),(int) (getPosY()-getGameWorld().camera.getPosY()),g);
 
         }
         else {

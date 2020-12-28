@@ -1,7 +1,5 @@
 package com.myTeam.game_object;
 
-import com.myTeam.status.*;
-
 public class Camera extends GameObject{
 
     private float widthView;
