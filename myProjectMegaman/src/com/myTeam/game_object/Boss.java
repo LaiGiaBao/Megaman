@@ -65,7 +65,7 @@ public class Boss extends Character {
         if(!attackType[attackIndex].equals("NONE")){
             if(attackType[attackIndex].equals("shooting")){
 
-                Bullet bullet = new com.myTeam.game_object.RocketBullet(getPosX(), getPosY() - 50, getGameWorld());
+                Bullet bullet = new RocketBullet(getPosX(), getPosY() - 50, getGameWorld());
                 if(getDirection() == LEFTDIR) bullet.setSpeedX(-4);
                 else bullet.setSpeedX(4);
                 bullet.setTeamType(getTeamType());
