@@ -1,31 +1,27 @@
 package com.myTeam.game_object;
 
-import com.myTeam.status.*;
 import com.myTeam.effect.Animation;
 import com.myTeam.effect.CacheDataLoader;
-import java.awt.Graphics2D;
-import java.awt.Rectangle;
-import java.util.Hashtable; //trong animation can nen t import vo luon
+import com.myTeam.status.GameWorld;
 
+import java.awt.*;
+import java.util.Hashtable;
 
-//public class monster1
 public class Boss extends Character {
+
     private Animation idleforward, idleback;
-
-
     private Animation shootingforward, shootingback;
     private Animation slideforward, slideback;
 
     private long startTimeForAttacked;
-    // time thuc hien 1 chieu attack cua boss gom tem va time xai chieu
+
     private Hashtable<String, Long> timeAttack = new Hashtable<String, Long>();
-    // loai attack(delay cx tinh trong attackType
     private String[] attackType = new String[4];
     private int attackIndex = 0;
     private long lastAttackTime;
 
     public Boss(float x, float y, GameWorld gameWorld) {
-        super(x, y, 110, 150, 0.1f, 100,1000, gameWorld);
+        super(x, y, 110, 150, 0.1f, 100, gameWorld);
         idleback = CacheDataLoader.getInstance().getAnimation("boss_idle");
         idleforward = CacheDataLoader.getInstance().getAnimation("boss_idle");
         idleforward.flipAllImage();
@@ -38,7 +34,7 @@ public class Boss extends Character {
         slideforward = CacheDataLoader.getInstance().getAnimation("boss_slide");
         slideforward.flipAllImage();
 
-        getStartTimeNoBeHurt(500*1000000);
+        setTimeForNoBehurt(500*1000000);
         setDamage(10);
 
         attackType[0] = "NONE";
@@ -55,7 +51,7 @@ public class Boss extends Character {
     public void Update(){
         super.Update();
 
-        if(getGameWorld().getMegaMan().getPosX() > getPosX())
+        if(getGameWorld().megaman.getPosX() > getPosX())
             setDirection(RIGHTDIR);
         else setDirection(LEFTDIR);
 
@@ -68,19 +64,21 @@ public class Boss extends Character {
 
         if(!attackType[attackIndex].equals("NONE")){
             if(attackType[attackIndex].equals("shooting")){
-            //chen cai code bullet cho boss vao
-                /*Bullet bullet = new RocketBullet(getPosX(), getPosY() - 50, getGameWorld());
+
+                Bullet bullet = new com.myTeam.game_object.RocketBullet(getPosX(), getPosY() - 50, getGameWorld());
                 if(getDirection() == LEFTDIR) bullet.setSpeedX(-4);
                 else bullet.setSpeedX(4);
                 bullet.setTeamType(getTeamType());
-                getGameWorld().bulletManager.addObject(bullet);*/
+                getGameWorld().bulletManager.addObject(bullet);
 
             }else if(attackType[attackIndex].equals("slide")){
 
-                if(getGameWorld().getPhysicMap().collisionlefl(getBoundsofmegaman())!=null)
+                if(getGameWorld().physicalMap.collisionWithLeft(getBoundForCollisionWithMap())!=null)
                     setSpeedX(5);
-                if(getGameWorld().getPhysicMap().collisionright(getBoundsofmegaman())!=null)
+                if(getGameWorld().physicalMap.collisionWithRight(getBoundForCollisionWithMap())!=null)
                     setSpeedX(-5);
+
+
                 setPosX(getPosX() + getSpeedX());
             }
         }else{
@@ -113,11 +111,6 @@ public class Boss extends Character {
     }
 
     @Override
-    public void standRun() {
-
-    }
-
-    @Override
     public void stopRun() {
 
 
@@ -135,9 +128,7 @@ public class Boss extends Character {
             if(attackIndex >= attackType.length) attackIndex = 0;
 
             if(attackType[attackIndex].equals("slide")){
-                if(getPosX() < getGameWorld().getMegaMan().getPosX())  {
-                    setSpeedX(5);
-                }
+                if(getPosX() < getGameWorld().megaman.getPosX()) setSpeedX(5);
                 else setSpeedX(-5);
             }
 
@@ -148,12 +139,12 @@ public class Boss extends Character {
     @Override
     public Rectangle getBoundForCollisionWithEnemy() {
         if(attackType[attackIndex].equals("slide")){
-            Rectangle rect = getBoundsofmegaman();
+            Rectangle rect = getBoundForCollisionWithMap();
             rect.y += 100;
             rect.height -= 100;
             return rect;
         }else
-            return getBoundsofmegaman();
+            return getBoundForCollisionWithMap();
     }
 
     @Override
@@ -167,32 +158,32 @@ public class Boss extends Character {
             if(attackType[attackIndex].equals("NONE")){
                 if(getDirection() == RIGHTDIR){
                     idleforward.Update(System.nanoTime());
-                    idleforward.draw((int) (getPosX() - getGameWorld().getCamera().getPosX()), (int) getPosY() - (int) getGameWorld().getCamera().getPosY(), g2);
+                    idleforward.draw((int) (getPosX() - getGameWorld().camera.getPosX()), (int) getPosY() - (int) getGameWorld().camera.getPosY(), g2);
                 }else{
                     idleback.Update(System.nanoTime());
-                    idleback.draw((int) (getPosX() - getGameWorld().getCamera().getPosX()), (int) getPosY() - (int) getGameWorld().getCamera().getPosY(), g2);
+                    idleback.draw((int) (getPosX() - getGameWorld().camera.getPosX()), (int) getPosY() - (int) getGameWorld().camera.getPosY(), g2);
                 }
             }else if(attackType[attackIndex].equals("shooting")){
 
                 if(getDirection() == RIGHTDIR){
                     shootingforward.Update(System.nanoTime());
-                    shootingforward.draw((int) (getPosX() - getGameWorld().getCamera().getPosX()), (int) getPosY() - (int) getGameWorld().getCamera().getPosY(), g2);
+                    shootingforward.draw((int) (getPosX() - getGameWorld().camera.getPosX()), (int) getPosY() - (int) getGameWorld().camera.getPosY(), g2);
                 }else{
                     shootingback.Update(System.nanoTime());
-                    shootingback.draw((int) (getPosX() - getGameWorld().getCamera().getPosX()), (int) getPosY() - (int) getGameWorld().getCamera().getPosY(), g2);
+                    shootingback.draw((int) (getPosX() - getGameWorld().camera.getPosX()), (int) getPosY() - (int) getGameWorld().camera.getPosY(), g2);
                 }
 
             }else if(attackType[attackIndex].equals("slide")){
                 if(getSpeedX() > 0){
                     slideforward.Update(System.nanoTime());
-                    slideforward.draw((int) (getPosX() - getGameWorld().getCamera().getPosX()), (int) getPosY() - (int) getGameWorld().getCamera().getPosY() + 50, g2);
+                    slideforward.draw((int) (getPosX() - getGameWorld().camera.getPosX()), (int) getPosY() - (int) getGameWorld().camera.getPosY() + 50, g2);
                 }else{
                     slideback.Update(System.nanoTime());
-                    slideback.draw((int) (getPosX() - getGameWorld().getCamera().getPosX()), (int) getPosY() - (int) getGameWorld().getCamera().getPosY() + 50, g2);
+                    slideback.draw((int) (getPosX() - getGameWorld().camera.getPosX()), (int) getPosY() - (int) getGameWorld().camera.getPosY() + 50, g2);
                 }
             }
         }
         // drawBoundForCollisionWithEnemy(g2);
     }
-}
 
+}
