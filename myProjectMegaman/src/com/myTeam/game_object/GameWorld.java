@@ -78,7 +78,28 @@ public class GameWorld {
         redbot.setDirection(ObjectO.LEFTDIR);
         redbot.setTeamType(ObjectO.ENEMYTEAM);
         objectManager.addObject(redbot);
+        
+        ObjectO redbot2 = new RedBot(2500, 500, this);
+        redbot2.setDirection(ObjectO.LEFTDIR);
+        redbot2.setTeamType(ObjectO.ENEMYTEAM);
+        objectManager.addObject(redbot2);
+        
+        ObjectO redbot3 = new RedBot(3450, 500, this);
+        redbot3.setDirection(ObjectO.LEFTDIR);
+        redbot3.setTeamType(ObjectO.ENEMYTEAM);
+        objectManager.addObject(redbot3);
+        
+        ObjectO flybot = new FlyBot(2000, 300, this);
+        flybot.setTeamType(ObjectO.ENEMYTEAM);
+        objectManager.addObject(flybot);
+        
+        ObjectO flybot2 = new FlyBot(2800, 350, this);
+        flybot2.setTeamType(ObjectO.ENEMYTEAM);
+        objectManager.addObject(flybot2);
+        
+        
     }
+    
     public void switchState(int state){
         previousState = this.state;
         this.state = state;
