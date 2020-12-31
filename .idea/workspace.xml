@@ -22,15 +22,14 @@
     <list default="true" id="f5c11374-5751-4548-bea9-dd08700eff5c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/effect/CacheDataLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/effect/CacheDataLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/effect/FrameImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/effect/FrameImage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/BackGround.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/BackGround.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/BlueFire.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/BlueFire.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/BlueFire1.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/BlueFire1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/Boss.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/Boss.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/Bullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/Bullet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/BulletManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/BulletManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/Camera.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/Character.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/FlyBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/FlyBot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/FlyBotBullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/FlyBotBullet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/GameObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/GameWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/GameWorld.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/MegaMan.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/MegaMan.java" afterDir="false" />
@@ -38,38 +37,13 @@
       <change beforePath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/ObjectO.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/ObjectO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/PhysicMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/PhysicMap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/RedBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/RedBot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/RedBotBullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/RedBotBullet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/RocketBullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/RocketBullet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/moster1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/status/GameWorld.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/user_interface/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/user_interface/Frame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/user_interface/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/user_interface/GamePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/user_interface/InputManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/user_interface/InputManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/control/Button.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/control/RectButton.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/effect/Animation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/effect/Animation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/effect/CacheDataLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/effect/CacheDataLoader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/effect/FrameImage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/effect/FrameImage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/game_object/BackGround.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/game_object/BackGround.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/game_object/BlueFire.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/game_object/BlueFire.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/game_object/Boss.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/game_object/Boss.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/game_object/Bullet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/game_object/Bullet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/game_object/BulletManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/game_object/BulletManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/game_object/Camera.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/game_object/Camera.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/game_object/Character.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/game_object/Character.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/game_object/GameObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/game_object/GameObject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/game_object/BlueFire.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/game_object/GameWorld.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/game_object/GameWorld.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/game_object/MegaMan.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/game_object/MegaMan.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/game_object/ObjectManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/game_object/ObjectManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/game_object/ObjectO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/game_object/ObjectO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/game_object/PhysicMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/game_object/PhysicMap.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/game_object/RedBot.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/game_object/RedBot.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/game_object/RedBotBullet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/game_object/RedBotBullet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/game_object/moster1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/status/GameWorld.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/status/MainStatus.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/status/Menu.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/user_interface/Frame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/user_interface/Frame.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/user_interface/GamePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/user_interface/GamePanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/user_interface/InputManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Megaman/com/myTeam/user_interface/InputManager.class" afterDir="false" />
     </list>
@@ -114,17 +88,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Frame" />
@@ -146,6 +109,9 @@
       <workItem from="1608640995988" duration="4330000" />
       <workItem from="1608716368340" duration="2610000" />
       <workItem from="1609172593347" duration="2621000" />
+      <workItem from="1609335170021" duration="5692000" />
+      <workItem from="1609387319138" duration="6146000" />
+      <workItem from="1609415595372" duration="669000" />
     </task>
     <servers />
   </component>
@@ -173,6 +139,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="447" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1607247919648" />
+    <state x="497" y="214" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1609392787189">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="497" y="214" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1609392787189" />
     <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1609172847057">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -189,26 +159,26 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="732" y="154" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1607350803747" />
-    <state width="1493" height="201" key="GridCell.Tab.0.bottom" timestamp="1609175235063">
+    <state width="725" height="201" key="GridCell.Tab.0.bottom" timestamp="1609342027532">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="201" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1609175235063" />
-    <state width="1493" height="201" key="GridCell.Tab.0.center" timestamp="1609175235063">
+    <state width="725" height="201" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1609342027532" />
+    <state width="725" height="201" key="GridCell.Tab.0.center" timestamp="1609342027531">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="201" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1609175235063" />
-    <state width="1493" height="201" key="GridCell.Tab.0.left" timestamp="1609175235062">
+    <state width="725" height="201" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1609342027531" />
+    <state width="725" height="201" key="GridCell.Tab.0.left" timestamp="1609342027531">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="201" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1609175235062" />
-    <state width="1493" height="201" key="GridCell.Tab.0.right" timestamp="1609175235063">
+    <state width="725" height="201" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1609342027531" />
+    <state width="725" height="201" key="GridCell.Tab.0.right" timestamp="1609342027531">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="201" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1609175235063" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1609175203619">
+    <state width="725" height="201" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1609342027531" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1609416248782">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1609175203619" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1609416248782" />
     <state x="768" y="312" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607337551811">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -229,11 +199,6 @@
           <properties class="java.io.IOException" package="java.io" />
           <option name="timeStamp" value="2" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/myProjectMegaman/src/com/myTeam/game_object/PhysicMap.java</url>
-          <line>74</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

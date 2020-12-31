@@ -14,8 +14,8 @@ public class CacheDataLoader {
 
     private String framePath = "myProjectMegaman/data/frame.txt";
     private String animationPath = "myProjectMegaman/data/animation.txt";
-    private String physmapfile = "myProjectMegaman/data/phys_map.txt";
-    private String backgroundsmapfile = "myProjectMegaman/data/background_map.txt";
+    private String physMapPath = "myProjectMegaman/data/phys_map.txt";
+    private String backgroundsMapPath = "myProjectMegaman/data/background_map.txt";
 
     private Hashtable<String, FrameImage> frameImages;
     private Hashtable<String, Animation> animations;
@@ -145,7 +145,7 @@ public class CacheDataLoader {
 
 
         public void LoadBackgroundMap () throws IOException {
-            FileReader fr = new FileReader(backgroundsmapfile);
+            FileReader fr = new FileReader(backgroundsMapPath);
             BufferedReader br = new BufferedReader(fr);
             String line = null;
             line = br.readLine();
@@ -176,7 +176,7 @@ public class CacheDataLoader {
         }
         public void LoadPhysMap () throws IOException {
 
-            FileReader fr = new FileReader(physmapfile);
+            FileReader fr = new FileReader(physMapPath);
             BufferedReader br = new BufferedReader(fr);
 
             String line = null;

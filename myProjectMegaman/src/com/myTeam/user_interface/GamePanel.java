@@ -27,7 +27,9 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
     }
     public void RenderGame(){
         if(bufImage == null){
-            bufImage = new BufferedImage(Frame.SCREEN_WIDTH, Frame.SCREEN_HEIGHT,BufferedImage.TYPE_INT_ARGB);
+            bufImage = new BufferedImage(Frame.SCREEN_WIDTH,
+                    Frame.SCREEN_HEIGHT,
+                    BufferedImage.TYPE_INT_ARGB);
         }
         else{
             bufG2D = (Graphics2D) bufImage.getGraphics();

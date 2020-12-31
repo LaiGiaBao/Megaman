@@ -59,24 +59,19 @@ public class InputManager {
     public void processedKeyRelease(int keyCode){
         switch (keyCode){
             case KeyEvent.VK_UP:
-                System.out.println("Released UP");
                 break;
             case KeyEvent.VK_DOWN:
                 gameWorld.megaman.standUp();
-                System.out.println("Released DOWN");
                 break;
             case KeyEvent.VK_LEFT:
-                System.out.println("Released LEFT");
                 if(gameWorld.megaman.getSpeedX()<0)
                     gameWorld.megaman.stopRun();
                 break;
             case KeyEvent.VK_RIGHT:
-                System.out.println("Released RIGHT");
                 if(gameWorld.megaman.getSpeedX()>0)
                     gameWorld.megaman.stopRun();
                 break;
             case KeyEvent.VK_ENTER:
-                System.out.println("Released ENTER");
                 break;
             case KeyEvent.VK_SPACE:
                 break;

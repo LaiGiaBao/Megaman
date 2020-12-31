@@ -25,52 +25,39 @@ public class MegaMan extends Character{
 
     public MegaMan(float x, float y, GameWorld gameWorld) {
         super(x, y, 70, 90, 0.1f, 100, gameWorld);
-
         //shooting1 = CacheDataLoader.getInstance().getSound("bluefireshooting");
         //hurtingSound = CacheDataLoader.getInstance().getSound("megamanhurt");
-
         setTeamType(LEAGUETEAM);
-
         setTimeForNoBehurt(2000*1000000);
-
         runForwardAnim = CacheDataLoader.getInstance().getAnimation("run");
         runBackAnim = CacheDataLoader.getInstance().getAnimation("run");
         runBackAnim.flipAllImage();
-
         idleForwardAnim = CacheDataLoader.getInstance().getAnimation("idle");
         idleBackAnim = CacheDataLoader.getInstance().getAnimation("idle");
         idleBackAnim.flipAllImage();
-
         dickForwardAnim = CacheDataLoader.getInstance().getAnimation("dick");
         dickBackAnim = CacheDataLoader.getInstance().getAnimation("dick");
         dickBackAnim.flipAllImage();
-
         flyForwardAnim = CacheDataLoader.getInstance().getAnimation("flyingup");
         flyForwardAnim.setIsRepeated(false);
         flyBackAnim = CacheDataLoader.getInstance().getAnimation("flyingup");
         flyBackAnim.setIsRepeated(false);
         flyBackAnim.flipAllImage();
-
         landingForwardAnim = CacheDataLoader.getInstance().getAnimation("landing");
         landingBackAnim = CacheDataLoader.getInstance().getAnimation("landing");
         landingBackAnim.flipAllImage();
-
         climWallBack = CacheDataLoader.getInstance().getAnimation("clim_wall");
         climWallForward = CacheDataLoader.getInstance().getAnimation("clim_wall");
         climWallForward.flipAllImage();
-
         behurtForwardAnim = CacheDataLoader.getInstance().getAnimation("hurting");
         behurtBackAnim = CacheDataLoader.getInstance().getAnimation("hurting");
         behurtBackAnim.flipAllImage();
-
         idleShootingForwardAnim = CacheDataLoader.getInstance().getAnimation("idleshoot");
         idleShootingBackAnim = CacheDataLoader.getInstance().getAnimation("idleshoot");
         idleShootingBackAnim.flipAllImage();
-
         runShootingForwarAnim = CacheDataLoader.getInstance().getAnimation("runshoot");
         runShootingBackAnim = CacheDataLoader.getInstance().getAnimation("runshoot");
         runShootingBackAnim.flipAllImage();
-
         flyShootingForwardAnim = CacheDataLoader.getInstance().getAnimation("flyingupshoot");
         flyShootingBackAnim = CacheDataLoader.getInstance().getAnimation("flyingupshoot");
         flyShootingBackAnim.flipAllImage();

@@ -7,32 +7,24 @@ import java.awt.*;
 public abstract class ObjectO extends GameObject{
     public static final int LEAGUETEAM = 1;
     public static final int ENEMYTEAM = 2;
-
     public static final int LEFTDIR = 0;
     public static final int RIGHTDIR = 1;
-
     public static final int ALIVE = 0;
     public static final int BEHURT = 1;
     public static final int FEY = 2;
     public static final int DEATH = 3;
     public static final int NOBEHURT = 4;
     private int state = ALIVE;
-
     private float width;
     private float height;
     private float mass;
     private float speedX;
     private float speedY;
     private int blood;
-
     private int damage;
-
     private int direction;
-
     protected Animation behurtForwardAnim, behurtBackAnim;
-
     private int teamType;
-
     private long startTimeNoBeHurt;
     private long timeForNoBeHurt;
 
