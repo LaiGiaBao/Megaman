@@ -40,7 +40,7 @@ public class GameWorld {
     public int previousState = state;
     public int tutorialState = INTROGAME;
 
-    public int storyTutorial = 0;
+    public int storyTutorial = 4;
     public String[] texts1 = new String[4];
 
     public String textTutorial;
